@@ -3,7 +3,7 @@
  * AML Disassembler version 20130328-64 [Apr 14 2013]
  * Copyright (c) 2000 - 2013 Intel Corporation
  * 
- * Disassembly of dsdt.aml, Wed Dec 18 07:33:53 2013
+ * Disassembly of dsdt.aml, Wed Dec 25 19:21:29 2013
  *
  * Original Table Header:
  *     Signature        "DSDT"
@@ -57,6 +57,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     External (_SB_.PCI0.PEG0.HPME, MethodObj)    // Warning: unresolved Method, assuming 0 arguments (may be incorrect, see warning above)
     External (_SB_.PCI0.PEG0.PEGP)
     External (_SB_.PCI0.PEG0.PEGP.SGOF, MethodObj)    // Warning: unresolved Method, assuming 0 arguments (may be incorrect, see warning above)
+		External (_SB_.PCI0.PEG0.PEGP.SGON, MethodOBj)
     External (_SB_.PCI0.PEG1)
     External (_SB_.PCI0.PEG1.HPME, MethodObj)    // Warning: unresolved Method, assuming 0 arguments (may be incorrect, see warning above)
     External (_SB_.PCI0.PEG2)
@@ -3758,7 +3759,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     })
                     Method (_PSW, 1, Serialized)  // _PSW: Power State Wake
                     {
-                        ^^^PEG0.PEGP.SGOF ()
                         Store (Arg0, MSFG)
                     }
                 }
@@ -3770,7 +3770,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
                 Method (PS2M._PRW, 0, Serialized)  // _PRW: Power Resources for Wake
                 {
-                    ^^^PEG0.PEGP.SGOF ()
                     Return (GPRW (0x1D, 0x03))
                 }
 
@@ -3830,7 +3829,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     })
                     Method (_PSW, 1, Serialized)  // _PSW: Power State Wake
                     {
-                        ^^^PEG0.PEGP.SGOF ()
                         Store (Arg0, KBFG)
                     }
                 }
@@ -3842,7 +3840,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
                 Method (PS2K._PRW, 0, Serialized)  // _PRW: Power Resources for Wake
                 {
-                    ^^^PEG0.PEGP.SGOF ()
                     Return (GPRW (0x1D, 0x03))
                 }
             }
@@ -4036,7 +4033,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Name (_ADR, Zero)  // _ADR: Address
                     Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
                     {
-                        ^^^PEG0.PEGP.SGOF ()
                         Return (GPRW (0x09, 0x04))
                     }
 
@@ -4274,7 +4270,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Name (_ADR, Zero)  // _ADR: Address
                     Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
                     {
-                        ^^^PEG0.PEGP.SGOF ()
                         Return (GPRW (0x09, 0x04))
                     }
 
@@ -4435,7 +4430,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Name (_ADR, Zero)  // _ADR: Address
                     Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
                     {
-                        ^^^PEG0.PEGP.SGOF ()
                         Return (GPRW (0x09, 0x04))
                     }
 
@@ -4673,7 +4667,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Name (_ADR, Zero)  // _ADR: Address
                     Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
                     {
-                        ^^^PEG0.PEGP.SGOF ()
                         Return (GPRW (0x09, 0x04))
                     }
 
@@ -4794,7 +4787,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Name (_STA, 0x0B)  // _STA: Status
             Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
             {
-                ^^PCI0.PEG0.PEGP.SGOF ()
                 Return (GPRW (0x1D, 0x03))
             }
         }
@@ -5253,7 +5245,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             Method (_PSW, 1, Serialized)  // _PSW: Power State Wake
             {
-                ^^PEG0.PEGP.SGOF ()
                 If (Arg0)
                 {
                     Store (Ones, PWUC)
@@ -5842,7 +5833,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             Method (_PSW, 1, Serialized)  // _PSW: Power State Wake
             {
-                ^^PEG0.PEGP.SGOF ()
                 If (Arg0)
                 {
                     Store (Ones, PWUC)
@@ -7906,7 +7896,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     {
         Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
         {
-            ^^PEG0.PEGP.SGOF ()
             Return (GPRW (0x09, 0x04))
         }
     }
@@ -7915,7 +7904,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     {
         Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
         {
-            ^^PEG0.PEGP.SGOF ()
             Return (GPRW (0x09, 0x04))
         }
     }
@@ -7924,7 +7912,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     {
         Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
         {
-            ^^PEG0.PEGP.SGOF ()
             Return (GPRW (0x09, 0x04))
         }
     }
@@ -7933,7 +7920,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     {
         Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
         {
-            ^^PEG0.PEGP.SGOF ()
             Return (GPRW (0x09, 0x04))
         }
     }
@@ -8532,7 +8518,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Method (_WAK, 1, Serialized)  // _WAK: Wake
     {
-        \_SB.PCI0.PEG0.PEGP.SGOF ()
         PINI ()
         WAK (Arg0)
         \_SB.PCI0.GFX0.GLID (One, WAK (Arg0), ADBG ("_WAK"))
@@ -9067,7 +9052,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         })
         Method (GPRW, 2, Serialized)
         {
-            \_SB.PCI0.PEG0.PEGP.SGOF ()
             Store (Arg0, Index (PRWP, Zero))
             Store (ShiftLeft (SS1, One), Local0)
             Or (Local0, ShiftLeft (SS2, 0x02), Local0)
@@ -13251,7 +13235,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
                 Method (_WED, 1, Serialized)  // _Wxx: Wake Event
                 {
-                    ^^^^PEG0.PEGP.SGOF ()
                     If (LEqual (Arg0, 0xC0))
                     {
                         Name (EVRT, Buffer (0x02)
@@ -13716,7 +13699,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     {
         If (Arg0)
         {
-            \_SB.PCI0.PEG0.PEGP.SGOF ()
             \_SB.PCI0.LPCB.SPTS (Arg0)
             \_SB.PCI0.NPTS (Arg0)
             \_SB.PCI0.LPCB.SIOS (Arg0)
@@ -13725,6 +13707,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Method (WAK, 1, Serialized)
     {
+				\_SB.PCI0.PEG0.PEGP.SGON ()
         \_SB.PCI0.PEG0.PEGP.SGOF ()
         \_SB.PCI0.LPCB.SWAK (Arg0)
         \_SB.PCI0.NWAK (Arg0)
