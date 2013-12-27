@@ -1,25 +1,25 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20130328-64 [Apr 14 2013]
+ * AML Disassembler version 20130823-64 [Aug 28 2013]
  * Copyright (c) 2000 - 2013 Intel Corporation
  * 
- * Disassembly of dsdt.aml, Wed Dec 25 19:21:29 2013
+ * Disassembly of dsdt.dat, Thu Dec 26 15:57:35 2013
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x0000C0AA (49322)
+ *     Length           0x0000DEBA (57018)
  *     Revision         0x02
- *     Checksum         0xAD
+ *     Checksum         0xD1
  *     OEM ID           "MSI_NB"
  *     OEM Table ID     "MEGABOOK"
- *     OEM Revision     0x00000022 (34)
+ *     OEM Revision     0x00000028 (40)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20130328 (538116904)
+ *     Compiler Version 0x20120711 (538052369)
  */
-DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
+DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000028)
 {
     /*
-     * iASL Warning: There were 9 external control methods found during
+     * iASL Warning: There were 16 external control methods found during
      * disassembly, but additional ACPI tables to resolve these externals
      * were not specified. This resulting disassembler output file may not
      * compile because the disassembler did not know how many arguments
@@ -29,11 +29,25 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
      *     iasl -e <ssdt1.aml,ssdt2.aml...> -d <dsdt.aml>
      *     iasl -e <dsdt.aml,ssdt2.aml...> -d <ssdt1.aml>
      */
+    External (_SB_.PCI0.GFX0.GHDS, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.GFX0.GLID, MethodObj)    // Warning: Unresolved Method, guessing 6 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.GFX0.IUEH, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.PAUD.PUAM, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.XHC_.DUAM, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (_SB_.TPM_.PTS_, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
+    External (HLRS, MethodObj)    // Warning: Unresolved Method, guessing 4 arguments (may be incorrect, see warning above)
+    External (LIDS, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (PS0X, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (PS3X, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (PWEN, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
+
     External (_PR_.AAC0)
     External (_PR_.ACRT)
     External (_PR_.APSV)
     External (_PR_.CFGD)
     External (_PR_.CPU0._PPC)
+    External (_PR_.CPU0._PSS)
     External (_SB_.IAOE.ECTM)
     External (_SB_.IAOE.FFSE)
     External (_SB_.IAOE.IBT1)
@@ -47,26 +61,27 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     External (_SB_.PCCD.PENB)
     External (_SB_.PCI0.GFX0.CLID)
     External (_SB_.PCI0.GFX0.DD1F)
-    External (_SB_.PCI0.GFX0.GLID, MethodObj)    // Warning: unresolved Method, assuming 3 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // Warning: unresolved Method, assuming 0 arguments (may be incorrect, see warning above)
     External (_SB_.PCI0.GFX0.GSSE)
-    External (_SB_.PCI0.GFX0.IUEH, MethodObj)    // Warning: unresolved Method, assuming 1 arguments (may be incorrect, see warning above)
     External (_SB_.PCI0.GFX0.STAT)
     External (_SB_.PCI0.GFX0.TCHE)
+    External (_SB_.PCI0.LPCB.PEG0.PEGP.TGPC)
     External (_SB_.PCI0.PEG0)
-    External (_SB_.PCI0.PEG0.HPME, MethodObj)    // Warning: unresolved Method, assuming 0 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.PEG0.HPME, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.PEG0.LNKD)
     External (_SB_.PCI0.PEG0.PEGP)
+    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Warning: Unresolved Method, guessing 5 arguments (may be incorrect, see warning above)
     External (_SB_.PCI0.PEG0.PEGP.SGOF, MethodObj)    // Warning: unresolved Method, assuming 0 arguments (may be incorrect, see warning above)
 		External (_SB_.PCI0.PEG0.PEGP.SGON, MethodOBj)
+    External (_SB_.PCI0.PEG0.PEGP.TGPC, BuffObj)
     External (_SB_.PCI0.PEG1)
-    External (_SB_.PCI0.PEG1.HPME, MethodObj)    // Warning: unresolved Method, assuming 0 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.PEG1.HPME, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
     External (_SB_.PCI0.PEG2)
-    External (_SB_.PCI0.PEG2.HPME, MethodObj)    // Warning: unresolved Method, assuming 0 arguments (may be incorrect, see warning above)
-    External (_SB_.TPM_.PTS_, MethodObj)    // Warning: unresolved Method, assuming 1 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.PEG2.HPME, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.XHC_.PS0X)
+    External (_SB_.PCI0.XHC_.PS3X)
     External (DIDX)
     External (GSMI)
-    External (IGDS, MethodObj)    // Warning: unresolved Method, assuming 1 arguments (may be incorrect, see warning above)
-    External (LIDS)
+    External (IGDS, IntObj)
     External (MDBG, IntObj)
     External (PDC0)
     External (PDC1)
@@ -76,39 +91,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     External (PDC5)
     External (PDC6)
     External (PDC7)
-
-    Method (DTGP, 5, Serialized)
-    {
-        If (LEqual (Arg0, Buffer (0x10)
-                {
-                    /* 0000 */   0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44,
-                    /* 0008 */   0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B
-                }))
-        {
-            If (LEqual (Arg1, One))
-            {
-                If (LEqual (Arg2, Zero))
-                {
-                    Store (Buffer (One)
-                        {
-                             0x03
-                        }, Arg4)
-                    Return (One)
-                }
-
-                If (LEqual (Arg2, One))
-                {
-                    Return (One)
-                }
-            }
-        }
-
-        Store (Buffer (One)
-            {
-                 0x00
-            }, Arg4)
-        Return (Zero)
-    }
+    External (SGMD)
 
     Name (SP1O, 0x164E)
     Name (IOCB, 0x0C20)
@@ -158,7 +141,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     Name (BBR, 0x03)
     Name (BWC, 0x04)
     Name (BWT1, 0x20)
-    Name (BSPC, 0x24)
     Name (BFHC, 0x0100)
     Name (TRTP, One)
     Name (WDTE, One)
@@ -178,7 +160,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     Name (BW1P, 0x21)
     Name (BW2C, 0x22)
     Name (BW2P, 0x23)
+    Name (BSPC, 0x24)
     Name (BSPP, 0x25)
+    Name (BICO, 0x27)
+    Name (BICC, 0x28)
     Name (BHB, 0x30)
     Name (BFS2, 0x31)
     Name (BFS3, 0x32)
@@ -186,6 +171,15 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     Name (BRH, 0x35)
     Name (DSSP, Zero)
     Name (FHPP, Zero)
+    Name (SMIA, 0xB2)
+    Name (SMIB, 0xB3)
+    Name (OFST, 0x35)
+    Name (TPMF, Zero)
+    Name (TCMF, Zero)
+    Name (TMF1, Zero)
+    Name (TMF2, Zero)
+    Name (TMF3, Zero)
+    Name (TRST, 0x02)
     Name (HIDK, "MSFT0001")
     Name (HIDM, "MSFT0003")
     Name (CIDK, 0x0303D041)
@@ -198,10 +192,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     Name (SS3, One)
     Name (SS4, One)
     Name (IOST, 0x4400)
-    Name (TOPM, Zero)
+    Name (TOPM, 0x00000000)
     Name (ROMS, 0xFFE00000)
     Name (VGAF, One)
-    OperationRegion (GNVS, SystemMemory, 0xA9A7FC18, 0x027F)
+    OperationRegion (GNVS, SystemMemory, 0xCB9DDC18, 0x02B1)
     Field (GNVS, AnyAcc, Lock, Preserve)
     {
         OSYS,   16, 
@@ -406,7 +400,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         SDS3,   8, 
         SDS4,   8, 
         SDS5,   8, 
-        SDS6,   8, 
+        Offset (0x212), 
         RIC0,   8, 
         PEPY,   8, 
         DVS0,   8, 
@@ -426,7 +420,9 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         VRRD,   16, 
         PSCP,   8, 
         RWAG,   8, 
-        Offset (0x22D), 
+        I20D,   16, 
+        I21D,   16, 
+        Offset (0x231), 
         RCG0,   8, 
         ECDB,   8, 
         P2ME,   8, 
@@ -468,16 +464,55 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         DMTD,   8, 
         DMSH,   8, 
         LANP,   8, 
-        XHDS,   8, 
+        Offset (0x27E), 
         SHSB,   8, 
         PLCS,   8, 
         PLVL,   16, 
-        USBH,   8
+        GN1E,   8, 
+        G1AT,   8, 
+        G1PT,   8, 
+        G1CT,   8, 
+        G1HT,   8, 
+        GN2E,   8, 
+        G2AT,   8, 
+        G2PT,   8, 
+        G2CT,   8, 
+        G2HT,   8, 
+        WWSD,   8, 
+        CVSD,   8, 
+        SSDD,   8, 
+        INLD,   8, 
+        IFAT,   8, 
+        IFPT,   8, 
+        IFCT,   8, 
+        IFHT,   8, 
+        DOSD,   8, 
+        USBH,   8, 
+        BCV4,   8, 
+        WTV0,   8, 
+        WTV1,   8, 
+        APFU,   8, 
+        SOHP,   8, 
+        NOHP,   8, 
+        TBSE,   8, 
+        WKFN,   8, 
+        PEPC,   16, 
+        VRSD,   16, 
+        PB1E,   8, 
+        WAND,   8, 
+        WWAT,   8, 
+        WWPT,   8, 
+        WWCT,   8, 
+        WWHT,   8, 
+        Offset (0x2AD), 
+        MPLT,   16, 
+        GR13,   8, 
+        SPST,   8
     }
 
     Scope (_SB)
     {
-        Name (PR00, Package (0x1C)
+        Name (PR00, Package (0x1B)
         {
             Package (0x04)
             {
@@ -693,17 +728,9 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Zero, 
                 LNKA, 
                 Zero
-            }, 
-
-            Package (0x04)
-            {
-                0x0006FFFF, 
-                Zero, 
-                LNKA, 
-                Zero
             }
         })
-        Name (AR00, Package (0x1C)
+        Name (AR00, Package (0x1B)
         {
             Package (0x04)
             {
@@ -919,14 +946,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Zero, 
                 Zero, 
                 0x10
-            }, 
-
-            Package (0x04)
-            {
-                0x0006FFFF, 
-                Zero, 
-                Zero, 
-                0x10
             }
         })
         Name (PR04, Package (0x04)
@@ -1133,20 +1152,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 0x12
             }
         })
-        Name (PR08, Package (0x04)
+        Name (PR09, Package (0x04)
         {
             Package (0x04)
             {
                 0xFFFF, 
                 Zero, 
-                LNKA, 
-                Zero
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                One, 
                 LNKB, 
                 Zero
             }, 
@@ -1154,7 +1165,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Package (0x04)
             {
                 0xFFFF, 
-                0x02, 
+                One, 
                 LNKC, 
                 Zero
             }, 
@@ -1162,25 +1173,25 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Package (0x04)
             {
                 0xFFFF, 
-                0x03, 
+                0x02, 
                 LNKD, 
                 Zero
-            }
-        })
-        Name (AR08, Package (0x04)
-        {
-            Package (0x04)
-            {
-                0xFFFF, 
-                Zero, 
-                Zero, 
-                0x10
             }, 
 
             Package (0x04)
             {
                 0xFFFF, 
-                One, 
+                0x03, 
+                LNKA, 
+                Zero
+            }
+        })
+        Name (AR09, Package (0x04)
+        {
+            Package (0x04)
+            {
+                0xFFFF, 
+                Zero, 
                 Zero, 
                 0x11
             }, 
@@ -1188,7 +1199,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Package (0x04)
             {
                 0xFFFF, 
-                0x02, 
+                One, 
                 Zero, 
                 0x12
             }, 
@@ -1196,9 +1207,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Package (0x04)
             {
                 0xFFFF, 
-                0x03, 
+                0x02, 
                 Zero, 
                 0x13
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x03, 
+                Zero, 
+                0x10
             }
         })
         Name (PR02, Package (0x04)
@@ -1422,18 +1441,18 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Name (_HID, EisaId ("PNP0A08"))  // _HID: Hardware ID
             Name (_CID, EisaId ("PNP0A03"))  // _CID: Compatible ID
             Name (_ADR, Zero)  // _ADR: Address
-            Method (^BN00, 0, Serialized)
+            Method (^BN00, 0, NotSerialized)
             {
                 Return (Zero)
             }
 
-            Method (_BBN, 0, Serialized)  // _BBN: BIOS Bus Number
+            Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
             {
                 Return (BN00 ())
             }
 
             Name (_UID, Zero)  // _UID: Unique ID
-            Method (_PRT, 0, Serialized)  // _PRT: PCI Routing Table
+            Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
             {
                 If (PICM)
                 {
@@ -1838,7 +1857,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 }
                 Else
                 {
-                    If (_OSI ("Windows 2012"))
+                    If (LGreaterEqual (OSYS, 0x07DC))
                     {
                         If (LEqual (XCNT, Zero))
                         {
@@ -1896,82 +1915,82 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             Scope (\_SB.PCI0)
             {
-                Method (AR00, 0, Serialized)
+                Method (AR00, 0, NotSerialized)
                 {
                     Return (^^AR00)
                 }
 
-                Method (PR00, 0, Serialized)
+                Method (PR00, 0, NotSerialized)
                 {
                     Return (^^PR00)
                 }
 
-                Method (AR02, 0, Serialized)
+                Method (AR02, 0, NotSerialized)
                 {
                     Return (^^AR02)
                 }
 
-                Method (PR02, 0, Serialized)
+                Method (PR02, 0, NotSerialized)
                 {
                     Return (^^PR02)
                 }
 
-                Method (AR04, 0, Serialized)
+                Method (AR04, 0, NotSerialized)
                 {
                     Return (^^AR04)
                 }
 
-                Method (PR04, 0, Serialized)
+                Method (PR04, 0, NotSerialized)
                 {
                     Return (^^PR04)
                 }
 
-                Method (AR06, 0, Serialized)
+                Method (AR06, 0, NotSerialized)
                 {
                     Return (^^AR06)
                 }
 
-                Method (PR06, 0, Serialized)
+                Method (PR06, 0, NotSerialized)
                 {
                     Return (^^PR06)
                 }
 
-                Method (AR07, 0, Serialized)
+                Method (AR07, 0, NotSerialized)
                 {
                     Return (^^AR07)
                 }
 
-                Method (PR07, 0, Serialized)
+                Method (PR07, 0, NotSerialized)
                 {
                     Return (^^PR07)
                 }
 
-                Method (AR08, 0, Serialized)
+                Method (AR09, 0, NotSerialized)
                 {
-                    Return (^^AR08)
+                    Return (^^AR09)
                 }
 
-                Method (PR08, 0, Serialized)
+                Method (PR09, 0, NotSerialized)
                 {
-                    Return (^^PR08)
+                    Return (^^PR09)
                 }
 
-                Method (AR0A, 0, Serialized)
+                Method (AR0A, 0, NotSerialized)
                 {
                     Return (^^AR0A)
                 }
 
-                Method (PR0A, 0, Serialized)
+                Method (PR0A, 0, NotSerialized)
                 {
                     Return (^^PR0A)
                 }
 
-                Method (AR0B, 0, Serialized)
+                Method (AR0B, 0, NotSerialized)
                 {
                     Return (^^AR0B)
                 }
 
-                Method (PR0B, 0, Serialized)
+                Method (PR0B, 0, NotSerialized)
                 {
                     Return (^^PR0B)
                 }
@@ -1988,12 +2007,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         0x00005000,         // Address Length
                         )
                 })
-                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
                     Return (CRS)
                 }
 
-                Method (_STA, 0, Serialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     If (TPMF)
                     {
@@ -2031,6 +2050,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Offset (0xAE), 
                         XUSB,   1
                     }
+
+										Device (PNLF)
+										{
+											 Name (_HID, EisaId ("APP0002"))
+											 Name (_CID, "backlight")
+											 Name (_UID, 0x0A)
+											 Name (_STA, 0x0B)
+										}
 
                     Device (LNKA)
                     {
@@ -2498,7 +2525,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             0x00000400,         // Address Length
                             _Y0F)
                     })
-                    Method (_STA, 0, Serialized)  // _STA: Status
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (LGreaterEqual (OSYS, 0x07D1))
                         {
@@ -2669,7 +2696,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         IRQNoFlags ()
                             {13}
                     })
-                    Method (_STA, 0, Serialized)  // _STA: Status
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (LEqual (And (CDID, 0xF000), 0x8000))
                         {
@@ -2809,7 +2836,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             0x02,               // Length
                             )
                     })
-                    Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                    Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
                         CreateWordField (BUF0, \_SB.PCI0.LPCB.LDRC._Y10._MIN, IO0M)  // _MIN: Minimum Base Address
                         CreateWordField (BUF0, \_SB.PCI0.LPCB.LDRC._Y10._MAX, IO0X)  // _MAX: Maximum Base Address
@@ -2842,8 +2869,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             0x01,               // Alignment
                             0x08,               // Length
                             )
-                        IRQNoFlags ()
-                            {8}
                     })
                 }
 
@@ -2864,8 +2889,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             0x10,               // Alignment
                             0x04,               // Length
                             )
-                        IRQNoFlags ()
-                            {0}
                     })
                 }
 
@@ -2903,7 +2926,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Device (SIO1)
                 {
                     Name (_HID, EisaId ("PNP0C02"))  // _HID: Hardware ID
-                    Method (_UID, 0, Serialized)  // _UID: Unique ID
+                    Method (_UID, 0, NotSerialized)  // _UID: Unique ID
                     {
                         Return (SP1O)
                     }
@@ -2914,7 +2937,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
                             0x00,               // Alignment
-                            0x00,               // Length
+                            0x01,               // Length
                             _Y14)
                         IO (Decode16,
                             0x0000,             // Range Minimum
@@ -2926,7 +2949,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
                             0x00,               // Alignment
-                            0x00,               // Length
+                            0x01,               // Length
                             _Y15)
                         IO (Decode16,
                             0x0000,             // Range Minimum
@@ -2938,10 +2961,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
                             0x00,               // Alignment
-                            0x00,               // Length
+                            0x01,               // Length
                             _Y16)
                     })
-                    Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                    Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
                         If (LAnd (LLess (SP1O, 0x03F0), LGreater (SP1O, 0xF0)))
                         {
@@ -2977,13 +3000,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     }
 
                     Mutex (MUT0, 0x00)
-                    Method (ENFG, 0, Serialized)
+                    Method (ENFG, 0, NotSerialized)
                     {
-                        Acquire (MUT0, 0xFFFF)
+                        Store (0x0FFF, MUT0)
                         Store (0x55, INDX)
                     }
 
-                    Method (EXFG, 0, Serialized)
+                    Method (EXFG, 0, NotSerialized)
                     {
                         Store (0xAA, INDX)
                         Release (MUT0)
@@ -3095,11 +3118,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         CR3C,   8
                     }
 
-                    Method (DSTA, 2, Serialized)
+                    Method (DSTA, 2, NotSerialized)
                     {
                     }
 
-                    Method (DCNT, 2, Serialized)
+                    Method (DCNT, 2, NotSerialized)
                     {
                         ENFG ()
                         If (LEqual (Arg0, Zero))
@@ -3290,7 +3313,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     CreateWordField (CRS7, \_SB.PCI0.LPCB.SIO1._Y2C._MAX, IOA2)  // _MAX: Maximum Base Address
                     CreateWordField (CRS7, \_SB.PCI0.LPCB.SIO1._Y2D._INT, IRQJ)  // _INT: Interrupts
                     CreateByteField (CRS7, \_SB.PCI0.LPCB.SIO1._Y2E._DMA, DMAJ)  // _DMA: Direct Memory Access
-                    Method (DSRS, 2, Serialized)
+                    Method (DSRS, 2, NotSerialized)
                     {
                         If (LEqual (Arg1, Zero))
                         {
@@ -3433,7 +3456,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     }
                 }
 
-                Method (SIOS, 1, Serialized)
+                Method (SIOS, 1, NotSerialized)
                 {
                     Store ("SIOS", Debug)
                     Store (0x02, ^SIO1.OFS7)
@@ -3488,7 +3511,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     ^SIO1.EXFG ()
                 }
 
-                Method (SIOW, 1, Serialized)
+                Method (SIOW, 1, NotSerialized)
                 {
                     Store ("SIOW", Debug)
                     And (^SIO1.PMS2, 0x02, Local0)
@@ -3509,7 +3532,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     ^SIO1.EXFG ()
                 }
 
-                Method (SIOH, 0, Serialized)
+                Method (SIOH, 0, NotSerialized)
                 {
                     Store ("SIOH", Debug)
                 }
@@ -3680,7 +3703,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             0x02,               // Length
                             )
                     })
-                    Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                    Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
                         If (And (MBEC, 0xFFFF))
                         {
@@ -3695,14 +3718,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
                 Device (PS2M)
                 {
-                    Name (_HID, EisaId ("SYN1507"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("ETD0301"))  // _HID: Hardware ID
                     Name (_CID, Package (0x03)  // _CID: Compatible ID
                     {
+                        EisaId ("PNP0F13"), 
                         EisaId ("SYN1500"), 
-                        EisaId ("SYN0002"), 
-                        EisaId ("PNP0F13")
+                        EisaId ("SYN0002")
                     })
-                    Method (_STA, 0, Serialized)  // _STA: Status
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (And (IOST, 0x4000))
                         {
@@ -3736,7 +3759,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         IRQNoFlags ()
                             {12}
                     })
-                    Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                    Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
                         If (And (IOST, 0x0400))
                         {
@@ -3757,7 +3780,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         }
                         EndDependentFn ()
                     })
-                    Method (_PSW, 1, Serialized)  // _PSW: Power State Wake
+                    Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
                     {
                         Store (Arg0, MSFG)
                     }
@@ -3768,16 +3791,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Name (MSFG, One)
                 }
 
-                Method (PS2M._PRW, 0, Serialized)  // _PRW: Power Resources for Wake
+                Method (PS2M._PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (GPRW (0x1D, 0x03))
                 }
 
                 Device (PS2K)
                 {
-                    Name (_HID, "MSNB1001")  // _HID: Hardware ID
+                    Name (_HID, EisaId ("MSI0007"))  // _HID: Hardware ID
                     Name (_CID, EisaId ("PNP030B"))  // _CID: Compatible ID
-                    Method (_STA, 0, Serialized)  // _STA: Status
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (And (IOST, 0x0400))
                         {
@@ -3810,16 +3833,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         StartDependentFn (0x00, 0x00)
                         {
-                            IO (Decode16,
-                                0x0060,             // Range Minimum
-                                0x0060,             // Range Maximum
-                                0x00,               // Alignment
+                            FixedIO (
+                                0x0060,             // Address
                                 0x01,               // Length
                                 )
-                            IO (Decode16,
-                                0x0064,             // Range Minimum
-                                0x0064,             // Range Maximum
-                                0x00,               // Alignment
+                            FixedIO (
+                                0x0064,             // Address
                                 0x01,               // Length
                                 )
                             IRQNoFlags ()
@@ -3827,7 +3846,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         }
                         EndDependentFn ()
                     })
-                    Method (_PSW, 1, Serialized)  // _PSW: Power State Wake
+                    Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
                     {
                         Store (Arg0, KBFG)
                     }
@@ -3838,7 +3857,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Name (KBFG, One)
                 }
 
-                Method (PS2K._PRW, 0, Serialized)  // _PRW: Power Resources for Wake
+                Method (PS2K._PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (GPRW (0x1D, 0x03))
                 }
@@ -3872,6 +3891,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Offset (0x60), 
                     Offset (0x62), 
                     PSPX,   1, 
+                    PMEP,   1, 
                     Offset (0xA4), 
                     D3HT,   2, 
                     Offset (0xD8), 
@@ -3895,7 +3915,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     PMSX,   1
                 }
 
-                Method (_STA, 0, Serialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     If (LEqual (VDID, 0xFFFFFFFF))
                     {
@@ -3915,10 +3935,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Zero
                 })
                 Name (OPTS, Zero)
+                Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (T_1, Zero)
-                    Name (T_0, Zero)
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
                         Store (ToInteger (Arg0), T_0)
@@ -3985,25 +4006,29 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                                             {
                                                 If (LTRE)
                                                 {
-                                                    Name (MLTR, Zero)
-                                                    If (LEqual (PCHS, One))
+                                                    If (LOr (LEqual (LMSL, 0xFFFFFFFF), LEqual (LNSL, 0xFFFFFFFF)))
                                                     {
-                                                        Store (0x0846, MLTR)
-                                                    }
-                                                    Else
-                                                    {
-                                                        If (LEqual (PCHS, 0x02))
+                                                        If (LEqual (PCHS, One))
                                                         {
-                                                            Store (0x1003, MLTR)
+                                                            Store (0x0846, LMSL)
+                                                            Store (0x0846, LNSL)
+                                                        }
+                                                        Else
+                                                        {
+                                                            If (LEqual (PCHS, 0x02))
+                                                            {
+                                                                Store (0x1003, LMSL)
+                                                                Store (0x1003, LNSL)
+                                                            }
                                                         }
                                                     }
 
-                                                    Store (And (ShiftRight (MLTR, 0x0A), 0x07), Index (LTRV, 
+                                                    Store (And (ShiftRight (LMSL, 0x0A), 0x07), Index (LTRV, 
                                                         Zero))
-                                                    Store (And (MLTR, 0x03FF), Index (LTRV, One))
-                                                    Store (And (ShiftRight (MLTR, 0x0A), 0x07), Index (LTRV, 
+                                                    Store (And (LMSL, 0x03FF), Index (LTRV, One))
+                                                    Store (And (ShiftRight (LNSL, 0x0A), 0x07), Index (LTRV, 
                                                         0x02))
-                                                    Store (And (MLTR, 0x03FF), Index (LTRV, 0x03))
+                                                    Store (And (LNSL, 0x03FF), Index (LTRV, 0x03))
                                                     Return (LTRV)
                                                 }
                                                 Else
@@ -4031,23 +4056,41 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Device (PXSX)
                 {
                     Name (_ADR, Zero)  // _ADR: Address
-                    Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
+                    Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                     {
                         Return (GPRW (0x09, 0x04))
                     }
 
-                    Method (_RMV, 0, Serialized)  // _RMV: Removal Status
+                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
                     {
                         Return (HPCE)
                     }
                 }
 
+                Method (_REG, 2, NotSerialized)  // _REG: Region Availability
+                {
+                    If (LAnd (LEqual (Arg0, 0x02), LEqual (Arg1, One)))
+                    {
+                        Store (One, RPAV)
+                    }
+                }
+
                 Method (HPME, 0, Serialized)
                 {
-                    Sleep (0x64)
-                    While (LNotEqual (PSPX, Zero))
+                    If (LOr (PSPX, PMEP))
                     {
+                        Store (PMEX, Local1)
+                        Store (Zero, PMEX)
+                        Sleep (0x32)
                         Store (One, PSPX)
+                        Sleep (0x32)
+                        If (PSPX)
+                        {
+                            Store (One, PSPX)
+                            Sleep (0x32)
+                        }
+
+                        Store (Local1, PMEX)
                     }
 
                     If (PMSX)
@@ -4070,7 +4113,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     }
                 }
 
-                Method (_PRT, 0, Serialized)  // _PRT: PCI Routing Table
+                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
                     If (PICM)
                     {
@@ -4109,6 +4152,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Offset (0x60), 
                     Offset (0x62), 
                     PSPX,   1, 
+                    PMEP,   1, 
                     Offset (0xA4), 
                     D3HT,   2, 
                     Offset (0xD8), 
@@ -4132,7 +4176,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     PMSX,   1
                 }
 
-                Method (_STA, 0, Serialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     If (LEqual (VDID, 0xFFFFFFFF))
                     {
@@ -4152,10 +4196,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Zero
                 })
                 Name (OPTS, Zero)
+                Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (T_1, Zero)
-                    Name (T_0, Zero)
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
                         Store (ToInteger (Arg0), T_0)
@@ -4222,25 +4267,29 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                                             {
                                                 If (LTRE)
                                                 {
-                                                    Name (MLTR, Zero)
-                                                    If (LEqual (PCHS, One))
+                                                    If (LOr (LEqual (LMSL, 0xFFFFFFFF), LEqual (LNSL, 0xFFFFFFFF)))
                                                     {
-                                                        Store (0x0846, MLTR)
-                                                    }
-                                                    Else
-                                                    {
-                                                        If (LEqual (PCHS, 0x02))
+                                                        If (LEqual (PCHS, One))
                                                         {
-                                                            Store (0x1003, MLTR)
+                                                            Store (0x0846, LMSL)
+                                                            Store (0x0846, LNSL)
+                                                        }
+                                                        Else
+                                                        {
+                                                            If (LEqual (PCHS, 0x02))
+                                                            {
+                                                                Store (0x1003, LMSL)
+                                                                Store (0x1003, LNSL)
+                                                            }
                                                         }
                                                     }
 
-                                                    Store (And (ShiftRight (MLTR, 0x0A), 0x07), Index (LTRV, 
+                                                    Store (And (ShiftRight (LMSL, 0x0A), 0x07), Index (LTRV, 
                                                         Zero))
-                                                    Store (And (MLTR, 0x03FF), Index (LTRV, One))
-                                                    Store (And (ShiftRight (MLTR, 0x0A), 0x07), Index (LTRV, 
+                                                    Store (And (LMSL, 0x03FF), Index (LTRV, One))
+                                                    Store (And (ShiftRight (LNSL, 0x0A), 0x07), Index (LTRV, 
                                                         0x02))
-                                                    Store (And (MLTR, 0x03FF), Index (LTRV, 0x03))
+                                                    Store (And (LNSL, 0x03FF), Index (LTRV, 0x03))
                                                     Return (LTRV)
                                                 }
                                                 Else
@@ -4268,23 +4317,41 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Device (PXSX)
                 {
                     Name (_ADR, Zero)  // _ADR: Address
-                    Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
+                    Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                     {
                         Return (GPRW (0x09, 0x04))
                     }
 
-                    Method (_RMV, 0, Serialized)  // _RMV: Removal Status
+                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
                     {
                         Return (HPCE)
                     }
                 }
 
+                Method (_REG, 2, NotSerialized)  // _REG: Region Availability
+                {
+                    If (LAnd (LEqual (Arg0, 0x02), LEqual (Arg1, One)))
+                    {
+                        Store (One, RPAV)
+                    }
+                }
+
                 Method (HPME, 0, Serialized)
                 {
-                    Sleep (0x64)
-                    While (LNotEqual (PSPX, Zero))
+                    If (LOr (PSPX, PMEP))
                     {
+                        Store (PMEX, Local1)
+                        Store (Zero, PMEX)
+                        Sleep (0x32)
                         Store (One, PSPX)
+                        Sleep (0x32)
+                        If (PSPX)
+                        {
+                            Store (One, PSPX)
+                            Sleep (0x32)
+                        }
+
+                        Store (Local1, PMEX)
                     }
 
                     If (PMSX)
@@ -4307,7 +4374,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     }
                 }
 
-                Method (_PRT, 0, Serialized)  // _PRT: PCI Routing Table
+                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
                     If (PICM)
                     {
@@ -4346,6 +4413,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Offset (0x60), 
                     Offset (0x62), 
                     PSPX,   1, 
+                    PMEP,   1, 
                     Offset (0xA4), 
                     D3HT,   2, 
                     Offset (0xD8), 
@@ -4369,167 +4437,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     PMSX,   1
                 }
 
-                Method (_STA, 0, Serialized)  // _STA: Status
-                {
-                    If (LEqual (VDID, 0xFFFFFFFF))
-                    {
-                        Return (Zero)
-                    }
-                    Else
-                    {
-                        Return (0x0F)
-                    }
-                }
-
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
-                {
-                    Store (Package (0x0C)
-                        {
-                            "AAPL,slot-name", 
-                            Buffer (0x05)
-                            {
-                                "PCIe"
-                            }, 
-
-                            "name", 
-                            "pci14e4,43a0", 
-                            "device-id", 
-                            Buffer (0x04)
-                            {
-                                 0xA0, 0x43, 0x00, 0x00
-                            }, 
-
-                            "IOName", 
-                            "pci14e4,43a0", 
-                            "device_type", 
-                            Buffer (0x11)
-                            {
-                                "Wi-Fi Controller"
-                            }, 
-
-                            "model", 
-                            Buffer (0x2B)
-                            {
-                                "Broadcom 802.11ac Wireless Network Adapter"
-                            }
-                        }, Local0)
-                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
-                    Return (Local0)
-                }
-
-                Name (LTRV, Package (0x04)
-                {
-                    Zero, 
-                    Zero, 
-                    Zero, 
-                    Zero
-                })
-                Name (OPTS, Zero)
-                Device (PXSX)
-                {
-                    Name (_ADR, Zero)  // _ADR: Address
-                    Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
-                    {
-                        Return (GPRW (0x09, 0x04))
-                    }
-
-                    Method (_RMV, 0, Serialized)  // _RMV: Removal Status
-                    {
-                        Return (HPCE)
-                    }
-                }
-
-                Method (HPME, 0, Serialized)
-                {
-                    Sleep (0x64)
-                    While (LNotEqual (PSPX, Zero))
-                    {
-                        Store (One, PSPX)
-                    }
-
-                    If (PMSX)
-                    {
-                        Store (0xC8, Local0)
-                        While (Local0)
-                        {
-                            Store (One, PMSX)
-                            If (PMSX)
-                            {
-                                Decrement (Local0)
-                            }
-                            Else
-                            {
-                                Store (Zero, Local0)
-                            }
-                        }
-
-                        Notify (PXSX, 0x02)
-                    }
-                }
-
-                Method (_PRT, 0, Serialized)  // _PRT: PCI Routing Table
-                {
-                    If (PICM)
-                    {
-                        Return (AR07 ())
-                    }
-
-                    Return (PR07 ())
-                }
-            }
-
-            Device (RP05)
-            {
-                Name (_ADR, 0x001C0004)  // _ADR: Address
-                OperationRegion (PXCS, PCI_Config, Zero, 0x0380)
-                Field (PXCS, AnyAcc, NoLock, Preserve)
-                {
-                    VDID,   32, 
-                    Offset (0x50), 
-                    L0SE,   1, 
-                        ,   3, 
-                    LDIS,   1, 
-                    Offset (0x51), 
-                    Offset (0x52), 
-                        ,   13, 
-                    LASX,   1, 
-                    Offset (0x54), 
-                        ,   6, 
-                    HPCE,   1, 
-                    Offset (0x5A), 
-                    ABPX,   1, 
-                        ,   2, 
-                    PDCX,   1, 
-                        ,   2, 
-                    PDSX,   1, 
-                    Offset (0x5B), 
-                    Offset (0x60), 
-                    Offset (0x62), 
-                    PSPX,   1, 
-                    Offset (0xA4), 
-                    D3HT,   2, 
-                    Offset (0xD8), 
-                        ,   30, 
-                    HPEX,   1, 
-                    PMEX,   1, 
-                    Offset (0xE2), 
-                        ,   2, 
-                    L23E,   1, 
-                    L23R,   1, 
-                    Offset (0x324), 
-                        ,   3, 
-                    LEDM,   1
-                }
-
-                Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
-                {
-                    Offset (0xDC), 
-                        ,   30, 
-                    HPSX,   1, 
-                    PMSX,   1
-                }
-
-                Method (_STA, 0, Serialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     If (LEqual (VDID, 0xFFFFFFFF))
                     {
@@ -4549,10 +4457,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Zero
                 })
                 Name (OPTS, Zero)
+                Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (T_1, Zero)
-                    Name (T_0, Zero)
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
                         Store (ToInteger (Arg0), T_0)
@@ -4619,25 +4528,29 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                                             {
                                                 If (LTRE)
                                                 {
-                                                    Name (MLTR, Zero)
-                                                    If (LEqual (PCHS, One))
+                                                    If (LOr (LEqual (LMSL, 0xFFFFFFFF), LEqual (LNSL, 0xFFFFFFFF)))
                                                     {
-                                                        Store (0x0846, MLTR)
-                                                    }
-                                                    Else
-                                                    {
-                                                        If (LEqual (PCHS, 0x02))
+                                                        If (LEqual (PCHS, One))
                                                         {
-                                                            Store (0x1003, MLTR)
+                                                            Store (0x0846, LMSL)
+                                                            Store (0x0846, LNSL)
+                                                        }
+                                                        Else
+                                                        {
+                                                            If (LEqual (PCHS, 0x02))
+                                                            {
+                                                                Store (0x1003, LMSL)
+                                                                Store (0x1003, LNSL)
+                                                            }
                                                         }
                                                     }
 
-                                                    Store (And (ShiftRight (MLTR, 0x0A), 0x07), Index (LTRV, 
+                                                    Store (And (ShiftRight (LMSL, 0x0A), 0x07), Index (LTRV, 
                                                         Zero))
-                                                    Store (And (MLTR, 0x03FF), Index (LTRV, One))
-                                                    Store (And (ShiftRight (MLTR, 0x0A), 0x07), Index (LTRV, 
+                                                    Store (And (LMSL, 0x03FF), Index (LTRV, One))
+                                                    Store (And (ShiftRight (LNSL, 0x0A), 0x07), Index (LTRV, 
                                                         0x02))
-                                                    Store (And (MLTR, 0x03FF), Index (LTRV, 0x03))
+                                                    Store (And (LNSL, 0x03FF), Index (LTRV, 0x03))
                                                     Return (LTRV)
                                                 }
                                                 Else
@@ -4665,23 +4578,41 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Device (PXSX)
                 {
                     Name (_ADR, Zero)  // _ADR: Address
-                    Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
+                    Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                     {
                         Return (GPRW (0x09, 0x04))
                     }
 
-                    Method (_RMV, 0, Serialized)  // _RMV: Removal Status
+                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
                     {
                         Return (HPCE)
                     }
                 }
 
+                Method (_REG, 2, NotSerialized)  // _REG: Region Availability
+                {
+                    If (LAnd (LEqual (Arg0, 0x02), LEqual (Arg1, One)))
+                    {
+                        Store (One, RPAV)
+                    }
+                }
+
                 Method (HPME, 0, Serialized)
                 {
-                    Sleep (0x64)
-                    While (LNotEqual (PSPX, Zero))
+                    If (LOr (PSPX, PMEP))
                     {
+                        Store (PMEX, Local1)
+                        Store (Zero, PMEX)
+                        Sleep (0x32)
                         Store (One, PSPX)
+                        Sleep (0x32)
+                        If (PSPX)
+                        {
+                            Store (One, PSPX)
+                            Sleep (0x32)
+                        }
+
+                        Store (Local1, PMEX)
                     }
 
                     If (PMSX)
@@ -4704,56 +4635,275 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     }
                 }
 
-                Method (_PRT, 0, Serialized)  // _PRT: PCI Routing Table
+                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
                     If (PICM)
                     {
-                        Return (AR08 ())
+                        Return (AR07 ())
                     }
 
-                    Return (PR08 ())
+                    Return (PR07 ())
                 }
             }
 
-            Device (P0P2)
+            Device (RP06)
             {
-                Name (_ADR, 0x00010000)  // _ADR: Address
-                Method (_PRT, 0, Serialized)  // _PRT: PCI Routing Table
+                Name (_ADR, 0x001C0005)  // _ADR: Address
+                OperationRegion (PXCS, PCI_Config, Zero, 0x0380)
+                Field (PXCS, AnyAcc, NoLock, Preserve)
                 {
-                    If (PICM)
-                    {
-                        Return (AR02 ())
-                    }
-
-                    Return (PR02 ())
+                    VDID,   32, 
+                    Offset (0x50), 
+                    L0SE,   1, 
+                        ,   3, 
+                    LDIS,   1, 
+                    Offset (0x51), 
+                    Offset (0x52), 
+                        ,   13, 
+                    LASX,   1, 
+                    Offset (0x54), 
+                        ,   6, 
+                    HPCE,   1, 
+                    Offset (0x5A), 
+                    ABPX,   1, 
+                        ,   2, 
+                    PDCX,   1, 
+                        ,   2, 
+                    PDSX,   1, 
+                    Offset (0x5B), 
+                    Offset (0x60), 
+                    Offset (0x62), 
+                    PSPX,   1, 
+                    PMEP,   1, 
+                    Offset (0xA4), 
+                    D3HT,   2, 
+                    Offset (0xD8), 
+                        ,   30, 
+                    HPEX,   1, 
+                    PMEX,   1, 
+                    Offset (0xE2), 
+                        ,   2, 
+                    L23E,   1, 
+                    L23R,   1, 
+                    Offset (0x324), 
+                        ,   3, 
+                    LEDM,   1
                 }
-            }
 
-            Device (P0PA)
-            {
-                Name (_ADR, 0x00010001)  // _ADR: Address
-                Method (_PRT, 0, Serialized)  // _PRT: PCI Routing Table
+                Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
                 {
-                    If (PICM)
-                    {
-                        Return (AR0A ())
-                    }
-
-                    Return (PR0A ())
+                    Offset (0xDC), 
+                        ,   30, 
+                    HPSX,   1, 
+                    PMSX,   1
                 }
-            }
 
-            Device (P0PB)
-            {
-                Name (_ADR, 0x00010002)  // _ADR: Address
-                Method (_PRT, 0, Serialized)  // _PRT: PCI Routing Table
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If (LEqual (VDID, 0xFFFFFFFF))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+
+                Name (LTRV, Package (0x04)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero
+                })
+                Name (OPTS, Zero)
+                Name (RPAV, Zero)
+                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                {
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    While (One)
+                    {
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, Buffer (0x10)
+                                {
+                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
+                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
+                                }))
+                        {
+                            While (One)
+                            {
+                                Store (ToInteger (Arg2), T_1)
+                                If (LEqual (T_1, Zero))
+                                {
+                                    If (LEqual (Arg1, 0x02))
+                                    {
+                                        Store (One, OPTS)
+                                        If (LTRE)
+                                        {
+                                            Or (OPTS, 0x40, OPTS)
+                                        }
+
+                                        If (OBFF)
+                                        {
+                                            Or (OPTS, 0x10, OPTS)
+                                        }
+
+                                        Return (OPTS)
+                                    }
+                                    Else
+                                    {
+                                        Return (Zero)
+                                    }
+                                }
+                                Else
+                                {
+                                    If (LEqual (T_1, 0x04))
+                                    {
+                                        If (LEqual (Arg1, 0x02))
+                                        {
+                                            If (OBFF)
+                                            {
+                                                Return (Buffer (0x10)
+                                                {
+                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */   0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00
+                                                })
+                                            }
+                                            Else
+                                            {
+                                                Return (Buffer (0x10)
+                                                {
+                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                })
+                                            }
+                                        }
+                                    }
+                                    Else
+                                    {
+                                        If (LEqual (T_1, 0x06))
+                                        {
+                                            If (LEqual (Arg1, 0x02))
+                                            {
+                                                If (LTRE)
+                                                {
+                                                    If (LOr (LEqual (LMSL, 0xFFFFFFFF), LEqual (LNSL, 0xFFFFFFFF)))
+                                                    {
+                                                        If (LEqual (PCHS, One))
+                                                        {
+                                                            Store (0x0846, LMSL)
+                                                            Store (0x0846, LNSL)
+                                                        }
+                                                        Else
+                                                        {
+                                                            If (LEqual (PCHS, 0x02))
+                                                            {
+                                                                Store (0x1003, LMSL)
+                                                                Store (0x1003, LNSL)
+                                                            }
+                                                        }
+                                                    }
+
+                                                    Store (And (ShiftRight (LMSL, 0x0A), 0x07), Index (LTRV, 
+                                                        Zero))
+                                                    Store (And (LMSL, 0x03FF), Index (LTRV, One))
+                                                    Store (And (ShiftRight (LNSL, 0x0A), 0x07), Index (LTRV, 
+                                                        0x02))
+                                                    Store (And (LNSL, 0x03FF), Index (LTRV, 0x03))
+                                                    Return (LTRV)
+                                                }
+                                                Else
+                                                {
+                                                    Return (Zero)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                Break
+                            }
+                        }
+
+                        Break
+                    }
+
+                    Return (Buffer (One)
+                    {
+                         0x00
+                    })
+                }
+
+                Device (PXSX)
+                {
+                    Name (_ADR, Zero)  // _ADR: Address
+                    Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+                    {
+                        Return (GPRW (0x09, 0x04))
+                    }
+
+                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                    {
+                        Return (HPCE)
+                    }
+                }
+
+                Method (_REG, 2, NotSerialized)  // _REG: Region Availability
+                {
+                    If (LAnd (LEqual (Arg0, 0x02), LEqual (Arg1, One)))
+                    {
+                        Store (One, RPAV)
+                    }
+                }
+
+                Method (HPME, 0, Serialized)
+                {
+                    If (LOr (PSPX, PMEP))
+                    {
+                        Store (PMEX, Local1)
+                        Store (Zero, PMEX)
+                        Sleep (0x32)
+                        Store (One, PSPX)
+                        Sleep (0x32)
+                        If (PSPX)
+                        {
+                            Store (One, PSPX)
+                            Sleep (0x32)
+                        }
+
+                        Store (Local1, PMEX)
+                    }
+
+                    If (PMSX)
+                    {
+                        Store (0xC8, Local0)
+                        While (Local0)
+                        {
+                            Store (One, PMSX)
+                            If (PMSX)
+                            {
+                                Decrement (Local0)
+                            }
+                            Else
+                            {
+                                Store (Zero, Local0)
+                            }
+                        }
+
+                        Notify (PXSX, 0x02)
+                    }
+                }
+
+                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
                     If (PICM)
                     {
-                        Return (AR0B ())
+                        Return (AR09 ())
                     }
 
-                    Return (PR0B ())
+                    Return (PR09 ())
                 }
             }
 
@@ -4765,19 +4915,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
         Scope (\_GPE)
         {
-            Method (_L1D, 0, Serialized)  // _Lxx: Level-Triggered GPE
+            Method (_L1D, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
             {
                 \_SB.PCI0.LPCB.SIOH ()
                 Notify (\_SB.PWRB, 0x02)
             }
-        }
-
-        Device (PNLF)
-        {
-            Name (_HID, EisaId ("APP0002"))  // _HID: Hardware ID
-            Name (_CID, "backlight")  // _CID: Compatible ID
-            Name (_UID, 0x0A)  // _UID: Unique ID
-            Name (_STA, 0x0B)  // _STA: Status
         }
 
         Device (PWRB)
@@ -4785,7 +4927,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Name (_HID, EisaId ("PNP0C0C"))  // _HID: Hardware ID
             Name (_UID, 0xAA)  // _UID: Unique ID
             Name (_STA, 0x0B)  // _STA: Status
-            Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
+            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 Return (GPRW (0x1D, 0x03))
             }
@@ -4800,7 +4942,24 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     Name (RPA5, 0x001C0005)
     Name (RPA6, 0x001C0006)
     Name (RPA7, 0x001C0007)
-    Name (PCHS, One)
+    Name (PCHS, 0x00000001)
+    Name (SRMB, 0xF7FE0000)
+    Name (PML1, 0x00000846)
+    Name (PML2, 0x00000846)
+    Name (PML3, 0x00000846)
+    Name (PML4, 0x00000846)
+    Name (PML5, 0x00000846)
+    Name (PML6, 0x00000846)
+    Name (PML7, 0x00000846)
+    Name (PML8, 0x00000846)
+    Name (PNL1, 0x00000846)
+    Name (PNL2, 0x00000846)
+    Name (PNL3, 0x00000846)
+    Name (PNL4, 0x00000846)
+    Name (PNL5, 0x00000846)
+    Name (PNL6, 0x00000846)
+    Name (PNL7, 0x00000846)
+    Name (PNL8, 0x00000846)
     Scope (\)
     {
         OperationRegion (IO_D, SystemIO, 0x0810, 0x04)
@@ -4854,9 +5013,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             GE08,   1, 
                 ,   8, 
             GE17,   1, 
-                ,   17, 
-            GE35,   1, 
-                ,   9, 
+                ,   27, 
             GE45,   1, 
                 ,   5, 
             GE51,   1, 
@@ -4869,9 +5026,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             GS08,   1, 
                 ,   8, 
             GS17,   1, 
-                ,   17, 
-            GS35,   1, 
-                ,   9, 
+                ,   27, 
             GS45,   1, 
                 ,   5, 
             GS51,   1, 
@@ -4941,7 +5096,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Offset (0x01), 
             GO08,   1, 
             GO09,   1, 
-                ,   4, 
+                ,   3, 
+            GO13,   1, 
             GO14,   1, 
                 ,   2, 
             GO17,   1, 
@@ -4966,9 +5122,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             AFES,   16, 
             AFER,   16, 
             Offset (0x3000), 
-            Offset (0x3400), 
-                ,   2, 
-            CMUE,   1, 
+            Offset (0x331C), 
+            Offset (0x331F), 
+            PMFS,   1, 
+            Offset (0x3320), 
+            CKEN,   32, 
             Offset (0x3404), 
             HPAS,   2, 
                 ,   5, 
@@ -5223,6 +5381,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     {
         Name (LTRE, Zero)
         Name (OBFF, Zero)
+        Name (LMSL, Zero)
+        Name (LNSL, Zero)
         Device (GLAN)
         {
             Name (_ADR, 0x00190000)  // _ADR: Address
@@ -5243,7 +5403,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 PWUC,   8
             }
 
-            Method (_PSW, 1, Serialized)  // _PSW: Power State Wake
+            Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
             {
                 If (Arg0)
                 {
@@ -5255,12 +5415,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 }
             }
 
-            Method (_S3D, 0, Serialized)  // _S3D: S3 Device State
+            Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
             {
                 Return (0x02)
             }
 
-            Method (_S4D, 0, Serialized)  // _S4D: S4 Device State
+            Method (_S4D, 0, NotSerialized)  // _S4D: S4 Device State
             {
                 Return (0x02)
             }
@@ -5420,7 +5580,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (T_0, Zero)
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -5484,7 +5644,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Name (UPCP, Package (0x04)
                             {
-                                Zero, 
+                                0xFF, 
                                 0xFF, 
                                 Zero, 
                                 Zero
@@ -5508,7 +5668,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (T_0, Zero)
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -5563,49 +5723,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
                             Return (Zero)
                         }
-
-                        Device (CAM0)
-                        {
-                            Method (_ADR, 0, Serialized)  // _ADR: Address
-                            {
-                                Return (^^_ADR)
-                            }
-
-                            Name (_PLD, Package (0x01)  // _PLD: Physical Location of Device
-                            {
-                                Buffer (0x14)
-                                {
-                                    /* 0000 */   0x82, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0x25, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0010 */   0x8C, 0x00, 0x2C, 0x01
-                                    /*           Revision : 02     */
-                                    /*        IgnoreColor : 01     */
-                                    /*              Color : 000000 */
-                                    /*              Width : 0000   */
-                                    /*             Height : 0000   */
-                                    /*        UserVisible : 01     */
-                                    /*               Dock : 00     */
-                                    /*                Lid : 01     */
-                                    /*              Panel : 04     */
-                                    /*   VerticalPosition : 00     */
-                                    /* HorizontalPosition : 01     */
-                                    /*              Shape : 07     */
-                                    /*   GroupOrientation : 00     */
-                                    /*         GroupToken : 00     */
-                                    /*      GroupPosition : 00     */
-                                    /*                Bay : 00     */
-                                    /*          Ejectable : 00     */
-                                    /*  OspmEjectRequired : 00     */
-                                    /*      CabinetNumber : 00     */
-                                    /*     CardCageNumber : 00     */
-                                    /*          Reference : 00     */
-                                    /*           Rotation : 00     */
-                                    /*              Order : 00     */
-                                    /*     VerticalOffset : 008C   */
-                                    /*   HorizontalOffset : 012C   */
-                                }
-                            })
-                        }
                     }
 
                     Device (PR16)
@@ -5639,7 +5756,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (T_0, Zero)
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -5727,7 +5844,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (T_0, Zero)
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -5831,7 +5948,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 PWUC,   6
             }
 
-            Method (_PSW, 1, Serialized)  // _PSW: Power State Wake
+            Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
             {
                 If (Arg0)
                 {
@@ -5843,12 +5960,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 }
             }
 
-            Method (_S3D, 0, Serialized)  // _S3D: S3 Device State
+            Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
             {
                 Return (0x02)
             }
 
-            Method (_S4D, 0, Serialized)  // _S4D: S4 Device State
+            Method (_S4D, 0, NotSerialized)  // _S4D: S4 Device State
             {
                 Return (0x02)
             }
@@ -5944,7 +6061,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (T_0, Zero)
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -6008,7 +6125,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Name (UPCP, Package (0x04)
                             {
-                                0xFF, 
+                                Zero, 
                                 0xFF, 
                                 Zero, 
                                 Zero
@@ -6026,13 +6143,19 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                                     /* 0008 */   0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
                                 }
                             })
+                            CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
+                            If (LEqual (And (CDID, 0xF000), 0x9000))
+                            {
+                                And (VIS, Zero, VIS)
+                            }
+
                             Return (PLDP)
                         }
 
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (T_0, Zero)
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -6116,6 +6239,49 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             })
                             Return (PLDP)
                         }
+
+                        Device (CAM0)
+                        {
+                            Method (_ADR, 0, Serialized)  // _ADR: Address
+                            {
+                                Return (^^_ADR)
+                            }
+
+                            Name (_PLD, Package (0x01)  // _PLD: Physical Location of Device
+                            {
+                                Buffer (0x14)
+                                {
+                                    /* 0000 */   0x82, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */   0x25, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0010 */   0x8C, 0x00, 0x2C, 0x01
+                                    /*           Revision : 02     */
+                                    /*        IgnoreColor : 01     */
+                                    /*              Color : 000000 */
+                                    /*              Width : 0000   */
+                                    /*             Height : 0000   */
+                                    /*        UserVisible : 01     */
+                                    /*               Dock : 00     */
+                                    /*                Lid : 01     */
+                                    /*              Panel : 04     */
+                                    /*   VerticalPosition : 00     */
+                                    /* HorizontalPosition : 01     */
+                                    /*              Shape : 07     */
+                                    /*   GroupOrientation : 00     */
+                                    /*         GroupToken : 00     */
+                                    /*      GroupPosition : 00     */
+                                    /*                Bay : 00     */
+                                    /*          Ejectable : 00     */
+                                    /*  OspmEjectRequired : 00     */
+                                    /*      CabinetNumber : 00     */
+                                    /*     CardCageNumber : 00     */
+                                    /*          Reference : 00     */
+                                    /*           Rotation : 00     */
+                                    /*              Order : 00     */
+                                    /*     VerticalOffset : 008C   */
+                                    /*   HorizontalOffset : 012C   */
+                                }
+                            })
+                        }
                     }
 
                     Device (PR15)
@@ -6125,7 +6291,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Name (UPCP, Package (0x04)
                             {
-                                Zero, 
+                                0xFF, 
                                 0xFF, 
                                 Zero, 
                                 Zero
@@ -6182,16 +6348,36 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         Device (XHC)
         {
             Name (_ADR, 0x00140000)  // _ADR: Address
-            OperationRegion (XPRT, PCI_Config, Zero, 0x0100)
-            Field (XPRT, DWordAcc, NoLock, Preserve)
+            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
-                Offset (0x10), 
-                MEMB,   32, 
+                If (LEqual (S0ID, One))
+                {
+                    Return (Package (0x01)
+                    {
+                        PEPD
+                    })
+                }
+                Else
+                {
+                    Return (Package(One) {})
+                }
+            }
+
+            OperationRegion (XPRT, PCI_Config, Zero, 0x0100)
+            Field (XPRT, AnyAcc, NoLock, Preserve)
+            {
+                DVID,   16, 
                 Offset (0x74), 
+                D0D3,   2, 
                 Offset (0x75), 
                 PMEE,   1, 
                     ,   6, 
                 PMES,   1, 
+                Offset (0xB0), 
+                    ,   13, 
+                MB13,   1, 
+                MB14,   1, 
+                Offset (0xB4), 
                 Offset (0xD0), 
                 PR2,    32, 
                 PR2M,   32, 
@@ -6199,23 +6385,401 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 PR3M,   32
             }
 
-            OperationRegion (XHCB, SystemMemory, 0xF80A0000, 0xC0)
-            Field (XHCB, DWordAcc, Lock, Preserve)
+            OperationRegion (XHCP, SystemMemory, Add (PEBS, 0x000A0000), 0x0100)
+            Field (XHCP, AnyAcc, Lock, Preserve)
             {
                 Offset (0x04), 
                 PDBM,   16, 
                 Offset (0x10), 
-                MBA1,   32, 
-                Offset (0x74), 
-                D0D3,   32, 
-                Offset (0xB0), 
-                    ,   13, 
-                MB13,   1, 
-                MB14,   1, 
-                Offset (0xB4)
+                MEMB,   64
+            }
+
+            Method (PR2S, 1, Serialized)
+            {
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                If (LEqual (And (CDID, 0xF000), 0x8000))
+                {
+                    While (One)
+                    {
+                        Store (Arg0, T_0)
+                        If (LEqual (T_0, One))
+                        {
+                            Return (One)
+                        }
+                        Else
+                        {
+                            If (LEqual (T_0, 0x02))
+                            {
+                                Return (0x02)
+                            }
+                            Else
+                            {
+                                If (LEqual (T_0, 0x03))
+                                {
+                                    Return (0x04)
+                                }
+                                Else
+                                {
+                                    If (LEqual (T_0, 0x04))
+                                    {
+                                        Return (0x08)
+                                    }
+                                    Else
+                                    {
+                                        If (LEqual (T_0, 0x05))
+                                        {
+                                            Return (0x0100)
+                                        }
+                                        Else
+                                        {
+                                            If (LEqual (T_0, 0x06))
+                                            {
+                                                Return (0x0200)
+                                            }
+                                            Else
+                                            {
+                                                If (LEqual (T_0, 0x07))
+                                                {
+                                                    Return (0x0400)
+                                                }
+                                                Else
+                                                {
+                                                    If (LEqual (T_0, 0x08))
+                                                    {
+                                                        Return (0x0800)
+                                                    }
+                                                    Else
+                                                    {
+                                                        If (LEqual (T_0, 0x09))
+                                                        {
+                                                            Return (0x10)
+                                                        }
+                                                        Else
+                                                        {
+                                                            If (LEqual (T_0, 0x0A))
+                                                            {
+                                                                Return (0x20)
+                                                            }
+                                                            Else
+                                                            {
+                                                                If (LEqual (T_0, 0x0B))
+                                                                {
+                                                                    Return (0x1000)
+                                                                }
+                                                                Else
+                                                                {
+                                                                    If (LEqual (T_0, 0x0C))
+                                                                    {
+                                                                        Return (0x2000)
+                                                                    }
+                                                                    Else
+                                                                    {
+                                                                        If (LEqual (T_0, 0x0D))
+                                                                        {
+                                                                            Return (0x40)
+                                                                        }
+                                                                        Else
+                                                                        {
+                                                                            If (LEqual (T_0, 0x0E))
+                                                                            {
+                                                                                Return (0x80)
+                                                                            }
+                                                                            Else
+                                                                            {
+                                                                                If (LEqual (T_0, 0x0F))
+                                                                                {
+                                                                                    Return (0x4000)
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Break
+                    }
+                }
+                Else
+                {
+                    While (One)
+                    {
+                        Store (Arg0, T_1)
+                        If (LEqual (T_1, One))
+                        {
+                            Return (One)
+                        }
+                        Else
+                        {
+                            If (LEqual (T_1, 0x02))
+                            {
+                                Return (0x02)
+                            }
+                            Else
+                            {
+                                If (LEqual (T_1, 0x03))
+                                {
+                                    Return (0x04)
+                                }
+                                Else
+                                {
+                                    If (LEqual (T_1, 0x04))
+                                    {
+                                        Return (0x08)
+                                    }
+                                    Else
+                                    {
+                                        If (LEqual (T_1, 0x05))
+                                        {
+                                            Return (0x10)
+                                        }
+                                        Else
+                                        {
+                                            If (LEqual (T_1, 0x06))
+                                            {
+                                                Return (0x20)
+                                            }
+                                            Else
+                                            {
+                                                If (LEqual (T_1, 0x07))
+                                                {
+                                                    Return (0x40)
+                                                }
+                                                Else
+                                                {
+                                                    If (LEqual (T_1, 0x08))
+                                                    {
+                                                        Return (0x80)
+                                                    }
+                                                    Else
+                                                    {
+                                                        If (LEqual (T_1, 0x09))
+                                                        {
+                                                            Return (0x0100)
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Break
+                    }
+                }
+								Return (Zero)
             }
 
             Name (XRST, Zero)
+            Method (_PS0, 0, Serialized)  // _PS0: Power State 0
+            {
+                If (LEqual (DVID, 0xFFFF))
+                {
+                    Return (Zero)
+                }
+
+                Store (MEMB, Local2)
+                Store (PDBM, Local1)
+                And (PDBM, 0xFFFFFFFFFFFFFFF9, PDBM)
+                Store (SRMB, MEMB)
+                Or (PDBM, 0x02, PDBM)
+                OperationRegion (MCA1, SystemMemory, SRMB, 0x9000)
+                Field (MCA1, DWordAcc, Lock, Preserve)
+                {
+                    Offset (0x510), 
+                    R510,   32, 
+                    Offset (0x520), 
+                    R520,   32, 
+                    Offset (0x530), 
+                    R530,   32, 
+                    Offset (0x540), 
+                    R540,   32, 
+                    Offset (0x80E0), 
+                        ,   15, 
+                    AX15,   1, 
+                    Offset (0x8154), 
+                        ,   31, 
+                    CLK2,   1, 
+                    Offset (0x816C), 
+                        ,   2, 
+                    CLK0,   1, 
+                        ,   11, 
+                    CLK1,   1
+                }
+
+                Store (D0D3, Local3)
+                If (LEqual (Local3, 0x03))
+                {
+                    Store (Zero, D0D3)
+                }
+
+                If (LEqual (PCHS, 0x02))
+                {
+                    Store (Zero, MB13)
+                    Store (Zero, MB14)
+                    Store (Zero, CLK0)
+                    Store (Zero, CLK1)
+                }
+
+                Store (One, CLK2)
+                If (LEqual (PCHS, 0x02))
+                {
+                    While (LOr (LOr (LEqual (And (R510, 0x03FB), 0x02E0), LEqual (
+                        And (R520, 0x03FB), 0x02E0)), LOr (LEqual (And (R530, 0x03FB), 
+                        0x02E0), LEqual (And (R540, 0x03FB), 0x02E0))))
+                    {
+                        Stall (0x32)
+                    }
+
+                    Store (R510, Local0)
+                    If (LEqual (And (Local0, 0x000203FB), 0x02A0))
+                    {
+                        Or (Local0, 0x80000000, R510)
+                        While (LEqual (And (R510, 0x00180000), Zero))
+                        {
+                            Stall (0x32)
+                        }
+
+                        And (R510, 0xFFFFFFFFFFFFFFFD, Local0)
+                        Or (Local0, 0x00FE0000, R510)
+                    }
+
+                    Store (R520, Local0)
+                    If (LEqual (And (Local0, 0x000203FB), 0x02A0))
+                    {
+                        Or (Local0, 0x80000000, R520)
+                        While (LEqual (And (R520, 0x00180000), Zero))
+                        {
+                            Stall (0x32)
+                        }
+
+                        And (R520, 0xFFFFFFFFFFFFFFFD, Local0)
+                        Or (Local0, 0x00FE0000, R520)
+                    }
+
+                    Store (R530, Local0)
+                    If (LEqual (And (Local0, 0x000203FB), 0x02A0))
+                    {
+                        Or (Local0, 0x80000000, R530)
+                        While (LEqual (And (R530, 0x00180000), Zero))
+                        {
+                            Stall (0x32)
+                        }
+
+                        And (R530, 0xFFFFFFFFFFFFFFFD, Local0)
+                        Or (Local0, 0x00FE0000, R530)
+                    }
+
+                    Store (R540, Local0)
+                    If (LEqual (And (Local0, 0x000203FB), 0x02A0))
+                    {
+                        Or (Local0, 0x80000000, R540)
+                        While (LEqual (And (R540, 0x00180000), Zero))
+                        {
+                            Stall (0x32)
+                        }
+
+                        And (R540, 0xFFFFFFFFFFFFFFFD, Local0)
+                        Or (Local0, 0x00FE0000, R540)
+                    }
+
+                    Store (One, AX15)
+                }
+
+                If (CondRefOf (\_SB.PCI0.XHC.PS0X))
+                {
+                    Store (0x00, PS0X)
+								}
+
+                If (LEqual (Local3, 0x03))
+                {
+                    Store (0x03, D0D3)
+                }
+
+                And (PDBM, 0xFFFFFFFFFFFFFFFD, PDBM)
+                Store (Local2, MEMB)
+                Store (Local1, PDBM)
+								Return (Zero)
+            }
+
+            Method (_PS3, 0, Serialized)  // _PS3: Power State 3
+            {
+                If (LEqual (DVID, 0xFFFF))
+                {
+                    Return (Zero)
+                }
+
+                Store (One, PMES)
+                Store (One, PMEE)
+                Store (MEMB, Local2)
+                Store (PDBM, Local1)
+                And (PDBM, 0xFFFFFFFFFFFFFFF9, PDBM)
+                Store (SRMB, MEMB)
+                Or (PDBM, 0x02, PDBM)
+                OperationRegion (MCA1, SystemMemory, SRMB, 0x9000)
+                Field (MCA1, DWordAcc, Lock, Preserve)
+                {
+                    Offset (0x80E0), 
+                        ,   15, 
+                    AX15,   1, 
+                    Offset (0x8154), 
+                        ,   31, 
+                    CLK2,   1, 
+                    Offset (0x816C), 
+                        ,   2, 
+                    CLK0,   1, 
+                        ,   11, 
+                    CLK1,   1, 
+                    Offset (0x8170)
+                }
+
+                Store (D0D3, Local3)
+                If (LEqual (Local3, 0x03))
+                {
+                    Store (Zero, D0D3)
+                }
+
+                If (LEqual (PCHS, 0x02))
+                {
+                    Store (One, MB13)
+                    Store (One, MB14)
+                    Store (One, CLK0)
+                    Store (One, CLK1)
+                }
+
+                Store (Zero, CLK2)
+                If (LEqual (PCHS, 0x02))
+                {
+                    Store (Zero, AX15)
+                }
+
+                If (CondRefOf (\_SB.PCI0.XHC.PS3X))
+                {
+                    Store (0x00, PS3X)
+                }
+
+                If (LEqual (Local3, 0x03))
+                {
+                    Store (0x03, D0D3)
+                }
+
+                And (PDBM, 0xFFFFFFFFFFFFFFFD, PDBM)
+                Store (Local2, MEMB)
+                Store (Local1, PDBM)
+								Return (Zero)
+            }
+
             Method (CUID, 1, Serialized)
             {
                 If (LEqual (Arg0, Buffer (0x10)
@@ -6234,11 +6798,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             {
                 CreateDWordField (Arg2, Zero, CDW1)
                 CreateDWordField (Arg2, 0x08, CDW3)
-                If (LNotEqual (Arg1, One))
-                {
-                    Or (CDW1, 0x08, CDW1)
-                }
-
                 If (LEqual (XHCI, Zero))
                 {
                     Or (CDW1, 0x02, CDW1)
@@ -6252,7 +6811,28 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     }
                     Else
                     {
-                        XSEL ()
+                        If (LEqual (And (CDID, 0xF000), 0x8000))
+                        {
+                            If (LGreater (Arg0, One))
+                            {
+                                XSEL ()
+                            }
+                            Else
+                            {
+                                Or (CDW1, 0x0A, CDW1)
+                            }
+                        }
+                        Else
+                        {
+                            If (LGreater (Arg0, 0x02))
+                            {
+                                XSEL ()
+                            }
+                            Else
+                            {
+                                Or (CDW1, 0x0A, CDW1)
+                            }
+                        }
                     }
                 }
 
@@ -6293,12 +6873,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 }
             }
 
-            Method (_S3D, 0, Serialized)  // _S3D: S3 Device State
+            Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
             {
                 Return (0x02)
             }
 
-            Method (_S4D, 0, Serialized)  // _S4D: S4 Device State
+            Method (_S4D, 0, NotSerialized)  // _S4D: S4 Device State
             {
                 Return (0x02)
             }
@@ -6319,7 +6899,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, One))) {}
+                        If (LNot (And (PR2S (One), PR2)))
+                        {
+                            Store (Zero, Index (UPCP, Zero))
+                        }
+
                         Return (UPCP)
                     }
 
@@ -6334,7 +6918,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, One))) {}
+                        If (LNot (And (PR2S (One), PR2)))
+                        {
+                            And (VIS, Zero, VIS)
+                        }
+
                         Return (PLDP)
                     }
                 }
@@ -6352,7 +6940,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x02))) {}
+                        If (LNot (And (PR2S (0x02), PR2)))
+                        {
+                            Store (Zero, Index (UPCP, Zero))
+                        }
+
                         Return (UPCP)
                     }
 
@@ -6367,7 +6959,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x02))) {}
+                        If (LNot (And (PR2S (0x02), PR2)))
+                        {
+                            And (VIS, Zero, VIS)
+                        }
+
                         Return (PLDP)
                     }
                 }
@@ -6380,12 +6976,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
-                            0x03, 
+                            Zero, 
+                            Zero, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x04))) {}
+                        If (LNot (And (PR2S (0x03), PR2)))
+                        {
+                            Store (Zero, Index (UPCP, Zero))
+                        }
+
                         Return (UPCP)
                     }
 
@@ -6395,12 +6995,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x71, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x04))) {}
+                        If (LNot (And (PR2S (0x03), PR2)))
+                        {
+                            And (VIS, Zero, VIS)
+                        }
+
                         If (LEqual (And (CDID, 0xF000), 0x9000))
                         {
                             And (VIS, Zero, VIS)
@@ -6418,45 +7022,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
-                            0x03, 
+                            Zero, 
+                            Zero, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x08))) {}
-                        Return (UPCP)
-                    }
-
-                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                    {
-                        Name (PLDP, Package (0x01)
-                        {
-                            Buffer (0x10)
-                            {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
-                            }
-                        })
-                        CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x08))) {}
-                        Return (PLDP)
-                    }
-                }
-
-                Device (HS05)
-                {
-                    Name (_ADR, 0x05)  // _ADR: Address
-                    Name (_STA, 0x0F)  // _STA: Status
-                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                    {
-                        Name (UPCP, Package (0x04)
-                        {
-                            0xFF, 
-                            0x03, 
-                            Zero, 
-                            Zero
-                        })
-                        If (LNot (And (PR2, 0x10)))
+                        If (LNot (And (PR2S (0x04), PR2)))
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
@@ -6470,12 +7041,53 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */   0x71, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
+                            }
+                        })
+                        CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
+                        If (LNot (And (PR2S (0x04), PR2)))
+                        {
+                            And (VIS, Zero, VIS)
+                        }
+
+                        Return (PLDP)
+                    }
+                }
+
+                Device (HS05)
+                {
+                    Name (_ADR, 0x05)  // _ADR: Address
+                    Name (_STA, 0x0F)  // _STA: Status
+                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                    {
+                        Name (UPCP, Package (0x04)
+                        {
+                            Zero, 
+                            Zero, 
+                            Zero, 
+                            Zero
+                        })
+                        If (LNot (And (PR2S (0x05), PR2)))
+                        {
+                            Store (Zero, Index (UPCP, Zero))
+                        }
+
+                        Return (UPCP)
+                    }
+
+                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                    {
+                        Name (PLDP, Package (0x01)
+                        {
+                            Buffer (0x10)
+                            {
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x69, 0x0C, 0x80, 0x02, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x10)))
+                        If (LNot (And (PR2S (0x05), PR2)))
                         {
                             And (VIS, Zero, VIS)
                         }
@@ -6492,12 +7104,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
-                            0x03, 
+                            Zero, 
+                            Zero, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x20)))
+                        If (LNot (And (PR2S (0x06), PR2)))
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
@@ -6511,12 +7123,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x69, 0x0C, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x20)))
+                        If (LNot (And (PR2S (0x06), PR2)))
                         {
                             And (VIS, Zero, VIS)
                         }
@@ -6533,12 +7145,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
+                            Zero, 
                             Zero, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x40)))
+                        If (LNot (And (PR2S (0x07), PR2)))
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
@@ -6552,12 +7164,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x71, 0x0C, 0x80, 0x03, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x40)))
+                        If (LNot (And (PR2S (0x07), PR2)))
                         {
                             And (VIS, Zero, VIS)
                         }
@@ -6574,12 +7186,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
+                            Zero, 
                             Zero, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x80)))
+                        If (LNot (And (PR2S (0x08), PR2)))
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
@@ -6593,12 +7205,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x71, 0x0C, 0x00, 0x04, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x80)))
+                        If (LNot (And (PR2S (0x08), PR2)))
                         {
                             And (VIS, Zero, VIS)
                         }
@@ -6615,12 +7227,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
+                            Zero, 
                             Zero, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x0100))) {}
+                        If (LNot (And (PR2S (0x09), PR2)))
+                        {
+                            Store (Zero, Index (UPCP, Zero))
+                        }
+
                         Return (UPCP)
                     }
 
@@ -6630,12 +7246,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x71, 0x0C, 0x80, 0x04, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x0100))) {}
+                        If (LNot (And (PR2S (0x09), PR2)))
+                        {
+                            And (VIS, Zero, VIS)
+                        }
+
                         If (LEqual (And (CDID, 0xF000), 0x9000))
                         {
                             And (VIS, Zero, VIS)
@@ -6675,12 +7295,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
+                            Zero, 
                             Zero, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x0200))) {}
+                        If (LNot (And (PR2S (0x0A), PR2)))
+                        {
+                            Store (Zero, Index (UPCP, Zero))
+                        }
+
                         Return (UPCP)
                     }
 
@@ -6690,12 +7314,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x71, 0x0C, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x0200))) {}
+                        If (LNot (And (PR2S (0x0A), PR2)))
+                        {
+                            And (VIS, Zero, VIS)
+                        }
+
                         Return (PLDP)
                     }
                 }
@@ -6731,11 +7359,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Name (UPCP, Package (0x04)
                         {
                             0xFF, 
-                            Zero, 
+                            0xFF, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x0400)))
+                        If (LNot (And (PR2S (0x0B), PR2)))
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
@@ -6749,12 +7377,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x80, 0x05, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x0400)))
+                        If (LNot (And (PR2S (0x0B), PR2)))
                         {
                             And (VIS, Zero, VIS)
                         }
@@ -6794,11 +7422,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Name (UPCP, Package (0x04)
                         {
                             0xFF, 
-                            Zero, 
+                            0xFF, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x0800)))
+                        If (LNot (And (PR2S (0x0C), PR2)))
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
@@ -6812,12 +7440,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x00, 0x06, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x0800)))
+                        If (LNot (And (PR2S (0x0C), PR2)))
                         {
                             And (VIS, Zero, VIS)
                         }
@@ -6857,11 +7485,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Name (UPCP, Package (0x04)
                         {
                             0xFF, 
-                            Zero, 
+                            0xFF, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x1000)))
+                        If (LNot (And (PR2S (0x0D), PR2)))
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
@@ -6875,12 +7503,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x06, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x1000)))
+                        If (LNot (And (PR2S (0x0D), PR2)))
                         {
                             And (VIS, Zero, VIS)
                         }
@@ -6909,11 +7537,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Name (UPCP, Package (0x04)
                         {
                             0xFF, 
-                            Zero, 
+                            0xFF, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x2000)))
+                        If (LNot (And (PR2S (0x0E), PR2)))
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
@@ -6927,12 +7555,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x07, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x2000)))
+                        If (LNot (And (PR2S (0x0E), PR2)))
                         {
                             And (VIS, Zero, VIS)
                         }
@@ -6960,12 +7588,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
+                            Zero, 
                             Zero, 
                             Zero, 
                             Zero
                         })
-                        If (LNot (And (PR2, 0x4000)))
+                        If (LNot (And (PR2S (0x0F), PR2)))
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
@@ -6979,12 +7607,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x70, 0x0C, 0x80, 0x07, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x4000)))
+                        If (LNot (And (PR2S (0x0F), PR2)))
                         {
                             And (VIS, Zero, VIS)
                         }
@@ -7116,8 +7744,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
-                            0x03, 
+                            Zero, 
+                            Zero, 
                             Zero, 
                             Zero
                         })
@@ -7135,7 +7763,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x71, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00
                             }
                         })
@@ -7168,8 +7796,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
-                            0x03, 
+                            Zero, 
+                            Zero, 
                             Zero, 
                             Zero
                         })
@@ -7187,7 +7815,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x71, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
                             }
                         })
@@ -7220,8 +7848,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
-                            0x03, 
+                            Zero, 
+                            Zero, 
                             Zero, 
                             Zero
                         })
@@ -7239,8 +7867,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x04, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */   0x71, 0x0C, 0x80, 0x02, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7272,8 +7900,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         Name (UPCP, Package (0x04)
                         {
-                            0xFF, 
-                            0x03, 
+                            Zero, 
+                            Zero, 
                             Zero, 
                             Zero
                         })
@@ -7291,8 +7919,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */   0x71, 0x0C, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7369,6 +7997,26 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Name (_ADR, 0x001F0002)  // _ADR: Address
             Name (FDEV, Zero)
             Name (FDRP, Zero)
+            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
+            {
+                ADBG ("SAT0 DEP Call")
+                If (LGreaterEqual (OSYS, 0x07DD))
+                {
+                    If (LAnd (LEqual (S0ID, One), LNotEqual (And (PEPC, 0x03
+                        ), Zero)))
+                    {
+                        ADBG ("SAT0 DEP")
+                        Return (Package (0x01)
+                        {
+                            PEPD
+                        })
+                    }
+                }
+
+                ADBG ("SAT0 DEP NULL")
+								Return (Package(One) {})
+            }
+
             Device (PRT0)
             {
                 Name (_ADR, 0xFFFF)  // _ADR: Address
@@ -7405,24 +8053,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Name (_ADR, 0x0001FFFF)  // _ADR: Address
                 Name (FDEV, Zero)
                 Name (FDRP, Zero)
-                Method (_DEP, 0, Serialized)  // _DEP: Dependencies
-                {
-                    ADBG ("SAta DEP")
-                    If (LAnd (LEqual (S0ID, One), And (PEPY, 0x02)))
-                    {
-                        ADBG ("SAta DEP")
-                        Return (Package (0x01)
-                        {
-                            PEPD
-                        })
-                    }
-                    Else
-                    {
-                        ADBG ("SAta DEP NULL")
-                        Return (Package (0x00) {})
-                    }
-                }
-
                 Method (_SDD, 1, Serialized)  // _SDD: Set Device Data
                 {
                     CreateByteField (Arg0, 0x9D, BFDS)
@@ -7434,6 +8064,39 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Method (_GTF, 0, Serialized)  // _GTF: Get Task File
                 {
                     If (LAnd (LAnd (LEqual (DVS1, One), LEqual (And (FDEV, One
+                        ), One)), LEqual (And (FDRP, 0x80), 0x80)))
+                    {
+                        Name (PIB1, Buffer (0x07)
+                        {
+                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF
+                        })
+                        Return (PIB1)
+                    }
+
+                    Name (PIB2, Buffer (0x07)
+                    {
+                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                    })
+                    Return (PIB2)
+                }
+            }
+
+            Device (PRT2)
+            {
+                Name (_ADR, 0x0002FFFF)  // _ADR: Address
+                Name (FDEV, Zero)
+                Name (FDRP, Zero)
+                Method (_SDD, 1, Serialized)  // _SDD: Set Device Data
+                {
+                    CreateByteField (Arg0, 0x9D, BFDS)
+                    ToInteger (BFDS, FDEV)
+                    CreateByteField (Arg0, 0x9A, BFRP)
+                    ToInteger (BFRP, FDRP)
+                }
+
+                Method (_GTF, 0, Serialized)  // _GTF: Get Task File
+                {
+                    If (LAnd (LAnd (LEqual (DVS2, One), LEqual (And (FDEV, One
                         ), One)), LEqual (And (FDRP, 0x80), 0x80)))
                     {
                         Name (PIB1, Buffer (0x07)
@@ -7830,7 +8493,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Scope (_SB.PCI0.LPCB)
     {
-        OperationRegion (CPSB, SystemMemory, 0xA95A3E18, 0x10)
+        OperationRegion (CPSB, SystemMemory, 0xCB45FE18, 0x10)
         Field (CPSB, AnyAcc, NoLock, Preserve)
         {
             RTCX,   1, 
@@ -7852,13 +8515,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             SBBF,   8
         }
 
-        Method (SPTS, 1, Serialized)
+        Method (SPTS, 1, NotSerialized)
         {
             Store (One, SLPX)
             Store (One, SLPE)
+            Store (Zero, ^^RP01.RPAV)
+            Store (Zero, ^^RP03.RPAV)
+            Store (Zero, ^^RP04.RPAV)
+            Store (Zero, ^^RP06.RPAV)
         }
 
-        Method (SWAK, 1, Serialized)
+        Method (SWAK, 1, NotSerialized)
         {
             Store (Zero, SLPE)
             If (RTCS) {}
@@ -7894,7 +8561,15 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Scope (_SB.PCI0.RP01)
     {
-        Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            Store (LTR1, LTRE)
+            Store (PML1, LMSL)
+            Store (PNL1, LNSL)
+            Store (OBF1, OBFF)
+        }
+
+        Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
         {
             Return (GPRW (0x09, 0x04))
         }
@@ -7902,7 +8577,15 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Scope (_SB.PCI0.RP03)
     {
-        Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            Store (LTR3, LTRE)
+            Store (PML3, LMSL)
+            Store (PNL3, LNSL)
+            Store (OBF3, OBFF)
+        }
+
+        Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
         {
             Return (GPRW (0x09, 0x04))
         }
@@ -7910,15 +8593,31 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Scope (_SB.PCI0.RP04)
     {
-        Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            Store (LTR4, LTRE)
+            Store (PML4, LMSL)
+            Store (PNL4, LNSL)
+            Store (OBF4, OBFF)
+        }
+
+        Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
         {
             Return (GPRW (0x09, 0x04))
         }
     }
 
-    Scope (_SB.PCI0.RP05)
+    Scope (_SB.PCI0.RP06)
     {
-        Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            Store (LTR6, LTRE)
+            Store (PML6, LMSL)
+            Store (PNL6, LNSL)
+            Store (OBF6, OBFF)
+        }
+
+        Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
         {
             Return (GPRW (0x09, 0x04))
         }
@@ -7951,7 +8650,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Method (UXDV, 1, Serialized)
     {
-        Name (T_0, Zero)
+        Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
         Store (0xFF, Local0)
         While (One)
         {
@@ -8018,7 +8717,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Method (RRIO, 4, Serialized)
     {
-        Name (T_0, Zero)
+        Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
         While (One)
         {
             Store (Add (Arg0, Zero), T_0)
@@ -8255,7 +8954,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         }
     }
 
-    Method (RDMA, 3, Serialized)
+    Method (RDMA, 3, NotSerialized)
     {
     }
 
@@ -8263,52 +8962,230 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
     {
         Name (PA0H, Zero)
         Name (PA1H, Zero)
+        Name (PA1L, Zero)
         Name (PA2H, Zero)
+        Name (PA2L, Zero)
         Name (PA3H, Zero)
+        Name (PA3L, Zero)
         Name (PA4H, Zero)
+        Name (PA4L, Zero)
         Name (PA5H, Zero)
+        Name (PA5L, Zero)
         Name (PA6H, Zero)
-        Method (NPTS, 1, Serialized)
+        Name (PA6L, Zero)
+        Method (NPTS, 1, NotSerialized)
         {
             Store (PM0H, PA0H)
             Store (PM1H, PA1H)
+            Store (PM1L, PA1L)
             Store (PM2H, PA2H)
+            Store (PM2L, PA2L)
             Store (PM3H, PA3H)
+            Store (PM3L, PA3L)
             Store (PM4H, PA4H)
+            Store (PM4L, PA4L)
             Store (PM5H, PA5H)
+            Store (PM5L, PA5L)
             Store (PM6H, PA6H)
+            Store (PM6L, PA6L)
         }
 
-        Method (NWAK, 1, Serialized)
+        Method (NWAK, 1, NotSerialized)
         {
             Store (PA0H, PM0H)
             Store (PA1H, PM1H)
+            Store (PA1L, PM1L)
             Store (PA2H, PM2H)
+            Store (PA2L, PM2L)
             Store (PA3H, PM3H)
+            Store (PA3L, PM3L)
             Store (PA4H, PM4H)
+            Store (PA4L, PM4L)
             Store (PA5H, PM5H)
+            Store (PA5L, PM5L)
             Store (PA6H, PM6H)
+            Store (PA6L, PM6L)
         }
     }
 
     Scope (_PR)
     {
-        Processor (CPU0, 0x01, 0x00001810, 0x06) {}
-        Processor (CPU1, 0x02, 0x00001810, 0x06) {}
-        Processor (CPU2, 0x03, 0x00001810, 0x06) {}
-        Processor (CPU3, 0x04, 0x00001810, 0x06) {}
-        Processor (CPU4, 0x05, 0x00001810, 0x06) {}
-        Processor (CPU5, 0x06, 0x00001810, 0x06) {}
-        Processor (CPU6, 0x07, 0x00001810, 0x06) {}
-        Processor (CPU7, 0x08, 0x00001810, 0x06) {}
+        Processor (CPU0, 0x01, 0x00001810, 0x06)
+        {
+            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
+            {
+                ADBG ("CPU0 DEP Call")
+                If (LEqual (S0ID, One))
+                {
+                    ADBG ("CPU0 DEP")
+                    Return (Package (0x01)
+                    {
+                        \_SB.PEPD
+                    })
+                }
+                Else
+                {
+                    ADBG ("CPU0 DEP NULL")
+										Return (Package(One) {})
+                }
+            }
+        }
+
+        Processor (CPU1, 0x02, 0x00001810, 0x06)
+        {
+            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
+            {
+                ADBG ("CPU1 DEP Call")
+                If (LEqual (S0ID, One))
+                {
+                    ADBG ("CPU1 DEP")
+                    Return (Package (0x01)
+                    {
+                        \_SB.PEPD
+                    })
+                }
+                Else
+                {
+                    ADBG ("CPU1 DEP NULL")
+										Return (Package(One) {})
+                }
+            }
+        }
+
+        Processor (CPU2, 0x03, 0x00001810, 0x06)
+        {
+            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
+            {
+                ADBG ("CPU2 DEP Call")
+                If (LEqual (S0ID, One))
+                {
+                    ADBG ("CPU2 DEP")
+                    Return (Package (0x01)
+                    {
+                        \_SB.PEPD
+                    })
+                }
+                Else
+                {
+                    ADBG ("CPU2 DEP NULL")
+										Return (Package(One) {})
+                }
+            }
+        }
+
+        Processor (CPU3, 0x04, 0x00001810, 0x06)
+        {
+            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
+            {
+                ADBG ("CPU3 DEP Call")
+                If (LEqual (S0ID, One))
+                {
+                    ADBG ("CPU3 DEP")
+                    Return (Package (0x01)
+                    {
+                        \_SB.PEPD
+                    })
+                }
+                Else
+                {
+                    ADBG ("CPU3 DEP NULL")
+										Return (Package(One) {})
+                }
+            }
+        }
+
+        Processor (CPU4, 0x05, 0x00001810, 0x06)
+        {
+            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
+            {
+                ADBG ("CPU4 DEP Call")
+                If (LEqual (S0ID, One))
+                {
+                    ADBG ("CPU4 DEP")
+                    Return (Package (0x01)
+                    {
+                        \_SB.PEPD
+                    })
+                }
+                Else
+                {
+                    ADBG ("CPU4 DEP NULL")
+                    Return (Package(One) {})
+                }
+            }
+        }
+
+        Processor (CPU5, 0x06, 0x00001810, 0x06)
+        {
+            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
+            {
+                ADBG ("CPU5 DEP Call")
+                If (LEqual (S0ID, One))
+                {
+                    ADBG ("CPU5 DEP")
+                    Return (Package (0x01)
+                    {
+                        \_SB.PEPD
+                    })
+                }
+                Else
+                {
+                    ADBG ("CPU5 DEP NULL")
+                    Return (Package(One) {})
+                }
+            }
+        }
+
+        Processor (CPU6, 0x07, 0x00001810, 0x06)
+        {
+            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
+            {
+                ADBG ("CPU6 DEP Call")
+                If (LEqual (S0ID, One))
+                {
+                    ADBG ("CPU6 DEP")
+                    Return (Package (0x01)
+                    {
+                        \_SB.PEPD
+                    })
+                }
+                Else
+                {
+                    ADBG ("CPU6 DEP NULL")
+										Return (Package(One) {})
+                }
+            }
+        }
+
+        Processor (CPU7, 0x08, 0x00001810, 0x06)
+        {
+            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
+            {
+                ADBG ("CPU7 DEP Call")
+                If (LEqual (S0ID, One))
+                {
+                    ADBG ("CPU7 DEP")
+                    Return (Package (0x01)
+                    {
+                        \_SB.PEPD
+                    })
+                }
+                Else
+                {
+                    ADBG ("CPU7 DEP NULL")
+										Return (Package(One) {})
+                }
+            }
+        }
     }
 
+    Name (ECUP, One)
     Scope (\)
     {
         Device (NFC1)
         {
             Name (_HID, EisaId ("SKTD000"))  // _HID: Hardware ID
-            Method (_STA, 0, Serialized)  // _STA: Status
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (LEqual (NFCE, 0x03))
                 {
@@ -8324,7 +9201,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         Device (NFC2)
         {
             Name (_HID, EisaId ("NXP5442"))  // _HID: Hardware ID
-            Method (_STA, 0, Serialized)  // _STA: Status
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (LEqual (NFCE, 0x02))
                 {
@@ -8340,7 +9217,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         Device (NFC3)
         {
             Name (_HID, EisaId ("ICV0A12"))  // _HID: Hardware ID
-            Method (_STA, 0, Serialized)  // _STA: Status
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (LEqual (NFCE, One))
                 {
@@ -8417,30 +9294,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         SSMP,   8
     }
 
-    Method (_PIC, 1, Serialized)  // _PIC: Interrupt Model
+    Method (_PIC, 1, NotSerialized)  // _PIC: Interrupt Model
     {
         Store (Arg0, GPIC)
         Store (Arg0, PICM)
     }
 
-    Method (_PTS, 1, Serialized)  // _PTS: Prepare To Sleep
+    Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
     {
         Store (Zero, P80D)
         P8XH (Zero, Arg0)
         PTS (Arg0)
-        If (LEqual (ECNO, One))
-        {
-            ADBG ("EC Notify")
-            If (LEqual (BID, BHB))
-            {
-                \_SB.WTGP (0x58, One)
-            }
-
-            \_SB.PCI0.LPCB.H_EC.ECMD (0x2D)
-            ADBG ("EC Debug")
-            Store (Zero, \_SB.PCI0.LPCB.H_EC.DLED)
-        }
-
         ADBG (Concatenate ("_PTS=", ToHexString (Arg0)))
         If (And (ICNF, 0x10))
         {
@@ -8472,11 +9336,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         {
                             If (LGreater (\_SB.IAOE.ECTM, Zero))
                             {
-                                Store (And (\_SB.IAOE.ECTM, 0xFF), \_SB.PCI0.LPCB.H_EC.AWT0)
-                                Store (ShiftRight (And (\_SB.IAOE.ECTM, 0xFF00), 0x08), \_SB.PCI0.LPCB.H_EC.AWT1)
-                                Store (ShiftRight (And (\_SB.IAOE.ECTM, 0x00FF0000), 0x10), \_SB.PCI0.LPCB.H_EC.AWT2)
-                                Store (\_SB.PCI0.LPCB.H_EC.WTMS, Local0)
-                                Store (Or (0x81, Local0), \_SB.PCI0.LPCB.H_EC.WTMS)
+                                \_SB.PCI0.LPCB.H_EC.ECWT (And (\_SB.IAOE.ECTM, 0xFF), RefOf (\_SB.PCI0.LPCB.H_EC.AWT0))
+                                \_SB.PCI0.LPCB.H_EC.ECWT (ShiftRight (And (\_SB.IAOE.ECTM, 0xFF00), 0x08), RefOf (\_SB.PCI0.LPCB.H_EC.AWT1))
+                                \_SB.PCI0.LPCB.H_EC.ECWT (ShiftRight (And (\_SB.IAOE.ECTM, 0x00FF0000), 0x10), RefOf (\_SB.PCI0.LPCB.H_EC.AWT2))
+                                Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.WTMS)), Local0)
+                                \_SB.PCI0.LPCB.H_EC.ECWT (Or (0x81, Local0), RefOf (\_SB.PCI0.LPCB.H_EC.WTMS))
                             }
                         }
                     }
@@ -8488,8 +9352,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             Store (One, \_SB.IAOE.FFSE)
                             If (LAnd (CondRefOf (\_SB.PCI0.LPCB.H_EC.WTMS), LEqual (\_SB.IAOE.PTSL, 0x03)))
                             {
-                                Store (\_SB.PCI0.LPCB.H_EC.WTMS, Local0)
-                                Store (Or (0x02, Local0), \_SB.PCI0.LPCB.H_EC.WTMS)
+                                Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.WTMS)), Local0)
+                                \_SB.PCI0.LPCB.H_EC.ECWT (Or (0x02, Local0), RefOf (\_SB.PCI0.LPCB.H_EC.WTMS))
                             }
                         }
                         Else
@@ -8497,6 +9361,21 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                             Store (Zero, \_SB.IAOE.FFSE)
                         }
                     }
+                }
+            }
+        }
+
+        If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))
+        {
+            If (LAnd (CondRefOf (\_SB.PCI0.LPCB.H_EC.PB10), ECON))
+            {
+                If (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.PB10)))
+                {
+                    Or (PB1E, 0x80, PB1E)
+                }
+                Else
+                {
+                    And (PB1E, 0x7F, PB1E)
                 }
             }
         }
@@ -8516,18 +9395,52 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         }
     }
 
+		Method (DTGP, 5, NotSerialized)
+		{
+				If (LEqual (Arg0, Buffer (0x10)
+								{
+										/* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44, 
+										/* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B
+								}))
+				{
+						If (LEqual (Arg1, One))
+						{
+								If (LEqual (Arg2, Zero))
+								{
+										Store (Buffer (One)
+												{
+														0x03
+												}, Arg4)
+										Return (One)
+								}
+								If (LEqual (Arg2, One))
+								{
+										Return (One)
+								}
+						}
+				}
+				Store (Buffer (One)
+						{
+								0x00
+						}, Arg4)
+				Return (Zero)
+		}
+
     Method (_WAK, 1, Serialized)  // _WAK: Wake
     {
-        PINI ()
-        WAK (Arg0)
-        \_SB.PCI0.GFX0.GLID (One, WAK (Arg0), ADBG ("_WAK"))
+				PINI ()
+        \_SB.PCI0.PEG0.PEGP.SGOF ()
+        P8XH (One, 0xAB)
+        \_SB.PCI0.GFX0.GLID (One, ShiftLeft (Arg0, 0x04, DBG8), WAK (Arg0))
+				ADBG ("_WAK")
         If (And (ICNF, 0x10))
         {
             If (And (\_SB.PCI0.GFX0.TCHE, 0x0100))
             {
                 If (LEqual (\_SB.IAOE.ITMR, One))
                 {
-                    If (LAnd (And (\_SB.IAOE.IBT1, One), And (\_SB.IAOE.WKRS, 0x02)))
+                    If (LAnd (And (\_SB.IAOE.IBT1, One), LOr (And (\_SB.IAOE.WKRS, 0x02
+                        ), And (\_SB.IAOE.WKRS, 0x10))))
                     {
                         Store (Or (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.GFX0.STAT)
                     }
@@ -8542,7 +9455,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     {
                         If (CondRefOf (\_SB.PCI0.LPCB.H_EC.IBT1))
                         {
-                            If (LAnd (And (\_SB.PCI0.LPCB.H_EC.IBT1, One), And (\_SB.IAOE.WKRS, 0x02)))
+                            If (LAnd (And (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.IBT1)), One), LOr (And (
+                                \_SB.IAOE.WKRS, 0x02), And (\_SB.IAOE.WKRS, 0x10))))
                             {
                                 Store (Or (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.GFX0.STAT)
                             }
@@ -8564,7 +9478,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             {
                 If (CondRefOf (\_SB.PCI0.LPCB.H_EC.WTMS))
                 {
-                    Store (Zero, \_SB.PCI0.LPCB.H_EC.WTMS)
+                    \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.WTMS))
                 }
             }
 
@@ -8598,13 +9512,21 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             {
                 If (LEqual (ECON, One))
                 {
-                    Store (Zero, \_SB.PCI0.LPCB.H_EC.CFAN)
+                    \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.CFAN))
                 }
             }
         }
 
         If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))
         {
+            If (LAnd (CondRefOf (\_SB.PCI0.LPCB.H_EC.PB10), ECON))
+            {
+                If (And (PB1E, 0x80))
+                {
+                    \_SB.PCI0.LPCB.H_EC.ECWT (One, RefOf (\_SB.PCI0.LPCB.H_EC.PB10))
+                }
+            }
+
             If (And (GBSX, 0x40))
             {
                 \_SB.PCI0.GFX0.IUEH (0x06)
@@ -8645,15 +9567,15 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             {
                 If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))
                 {
-                    Store (\_SB.PCI0.LPCB.H_EC.LSTE, LIDS)
-                    If (IGDS (P8XH (Zero, LIDS)))
+                    Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.LSTE)), LIDS)
+                    If (IGDS)
                     {
-                        If (LEqual (LIDS, Zero))
+                        If (LEqual (LIDS (), Zero))
                         {
                             Store (0x80000000, \_SB.PCI0.GFX0.CLID)
                         }
 
-                        If (LEqual (LIDS, One))
+                        If (LEqual (LIDS (), One))
                         {
                             Store (0x80000003, \_SB.PCI0.GFX0.CLID)
                         }
@@ -8662,9 +9584,9 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Notify (\_SB.LID0, 0x80)
                 }
 
-                If (LNotEqual (\_SB.PCI0.LPCB.H_EC.DOCK, DSTS))
+                If (LNotEqual (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.DOCK)), DSTS))
                 {
-                    Store (\_SB.PCI0.LPCB.H_EC.DOCK, DSTS)
+                    Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.DOCK)), DSTS)
                     If (LAnd (\_SB.PCI0.HDEF.DCKS, One))
                     {
                         Store (DSTS, \_SB.PCI0.HDEF.DCKA)
@@ -8689,17 +9611,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
                 If (LEqual (BNUM, Zero))
                 {
-                    If (LNotEqual (\_SB.PCI0.LPCB.H_EC.VPWR, PWRS))
+                    If (LNotEqual (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.VPWR)), PWRS))
                     {
-                        Store (\_SB.PCI0.LPCB.H_EC.VPWR, PWRS)
+                        Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.VPWR)), PWRS)
                         PNOT ()
                     }
                 }
                 Else
                 {
-                    If (LNotEqual (\_SB.PCI0.LPCB.H_EC.RPWR, PWRS))
+                    If (LNotEqual (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.RPWR)), PWRS))
                     {
-                        Store (\_SB.PCI0.LPCB.H_EC.RPWR, PWRS)
+                        Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.RPWR)), PWRS)
                         PNOT ()
                     }
                 }
@@ -8720,30 +9642,15 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Notify (\_SB.PCI0.RP04, Zero)
             }
 
-            If (LEqual (RP5D, Zero))
+            If (LEqual (RP6D, Zero))
             {
-                Notify (\_SB.PCI0.RP05, Zero)
+                Notify (\_SB.PCI0.RP06, Zero)
             }
         }
 
         If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))
         {
             \_SB.PCI0.XHC.XWAK ()
-        }
-
-        If (LEqual (\_SB.PCI0.LPCB.EC.PCBV, One))
-        {
-            If (LGreater (And (\_SB.PCI0.LPCB.EC.DMST, 0x07), Zero))
-            {
-                Notify (\_SB.PCI0.PEG0.PEGP, 0x81)
-            }
-        }
-        Else
-        {
-            If (LGreater (And (\_SB.PCI0.LPCB.EC.DMST, 0x03), Zero))
-            {
-                Notify (\_SB.PCI0.PEG0.PEGP, 0x81)
-            }
         }
 
         Return (Package (0x02)
@@ -8763,11 +9670,20 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Method (PNOT, 0, Serialized)
     {
+        If (CondRefOf (\_SB.PCCD.PENB))
+        {
+            Store (0x82, Local0)
+        }
+        Else
+        {
+            Store (0x80, Local0)
+        }
+
         If (LGreater (TCNT, One))
         {
             If (And (PDC0, 0x08))
             {
-                Notify (\_PR.CPU0, 0x80)
+                Notify (\_PR.CPU0, Local0)
                 If (And (PDC0, 0x10))
                 {
                     Notify (\_PR.CPU0, 0x81)
@@ -8776,7 +9692,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             If (And (PDC1, 0x08))
             {
-                Notify (\_PR.CPU1, 0x80)
+                Notify (\_PR.CPU1, Local0)
                 If (And (PDC1, 0x10))
                 {
                     Notify (\_PR.CPU1, 0x81)
@@ -8785,7 +9701,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             If (And (PDC2, 0x08))
             {
-                Notify (\_PR.CPU2, 0x80)
+                Notify (\_PR.CPU2, Local0)
                 If (And (PDC2, 0x10))
                 {
                     Notify (\_PR.CPU2, 0x81)
@@ -8794,7 +9710,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             If (And (PDC3, 0x08))
             {
-                Notify (\_PR.CPU3, 0x80)
+                Notify (\_PR.CPU3, Local0)
                 If (And (PDC3, 0x10))
                 {
                     Notify (\_PR.CPU3, 0x81)
@@ -8803,7 +9719,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             If (And (PDC4, 0x08))
             {
-                Notify (\_PR.CPU4, 0x80)
+                Notify (\_PR.CPU4, Local0)
                 If (And (PDC4, 0x10))
                 {
                     Notify (\_PR.CPU4, 0x81)
@@ -8812,7 +9728,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             If (And (PDC5, 0x08))
             {
-                Notify (\_PR.CPU5, 0x80)
+                Notify (\_PR.CPU5, Local0)
                 If (And (PDC5, 0x10))
                 {
                     Notify (\_PR.CPU5, 0x81)
@@ -8821,7 +9737,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             If (And (PDC6, 0x08))
             {
-                Notify (\_PR.CPU6, 0x80)
+                Notify (\_PR.CPU6, Local0)
                 If (And (PDC6, 0x10))
                 {
                     Notify (\_PR.CPU6, 0x81)
@@ -8830,7 +9746,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             If (And (PDC7, 0x08))
             {
-                Notify (\_PR.CPU7, 0x80)
+                Notify (\_PR.CPU7, Local0)
                 If (And (PDC7, 0x10))
                 {
                     Notify (\_PR.CPU7, 0x81)
@@ -8839,16 +9755,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         }
         Else
         {
-            Notify (\_PR.CPU0, 0x80)
+            Notify (\_PR.CPU0, Local0)
             Notify (\_PR.CPU0, 0x81)
         }
 
         If (LEqual (ECON, One))
         {
-            Store (\_SB.PCI0.LPCB.H_EC.B1CC, B1SC)
-            Store (\_SB.PCI0.LPCB.H_EC.B1ST, B1SS)
-            Store (\_SB.PCI0.LPCB.H_EC.B2CC, B2SC)
-            Store (\_SB.PCI0.LPCB.H_EC.B2ST, B2SS)
+            Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.B1CC)), B1SC)
+            Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.B1ST)), B1SS)
+            Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.B2CC)), B2SC)
+            Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.B2ST)), B2SS)
             If (LGreaterEqual (OSYS, 0x07D6))
             {
                 Notify (\_SB.PCI0.LPCB.H_EC.BAT0, 0x81)
@@ -8910,7 +9826,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         Store (Local1, PPL1)
         Store (One, PL1E)
         Store (One, CLP1)
-        Return (Zero)
+				Return (Zero)
     }
 
     Method (RPL1, 0, Serialized)
@@ -8923,6 +9839,93 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Name (DDPS, Zero)
     Name (UAMS, Zero)
+    Method (GUAM, 1, Serialized)
+    {
+        If (LNotEqual (Arg0, DDPS))
+        {
+            Store (Arg0, DDPS)
+            Store (LAnd (Arg0, Not (PWRS)), UAMS)
+            If (Arg0)
+            {
+                If (LEqual (ECNO, One))
+                {
+                    ADBG ("EC Notify")
+                    If (LEqual (ECDB, One))
+                    {
+                        ADBG ("EC Debug")
+                        \_SB.PCI0.LPCB.H_EC.ECWT (One, RefOf (\_SB.PCI0.LPCB.H_EC.DLED))
+                    }
+
+                    \_SB.PCI0.LPCB.H_EC.ECMD (0x2C)
+                    Store (Zero, ECUP)
+                }
+
+                P8XH (Zero, 0xC5)
+                P8XH (One, Zero)
+                ADBG ("Enter CS")
+                If (PSCP)
+                {
+                    If (LAnd (CondRefOf (\_PR.CPU0._PSS), CondRefOf (\_PR.CPU0._PPC)))
+                    {
+                        Subtract (SizeOf (\_PR.CPU0._PSS), One, \_PR.CPU0._PPC)
+                        PNOT ()
+                    }
+                }
+
+                If (PLCS)
+                {
+                    SPL1 ()
+                }
+            }
+            Else
+            {
+                If (LEqual (ECNO, One))
+                {
+                    ADBG ("EC Notify")
+                    \_SB.PCI0.LPCB.H_EC.ECMD (0x2D)
+                    Store (One, ECUP)
+                    ADBG ("EC Debug")
+                    \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.DLED))
+                }
+
+                P8XH (Zero, 0xC5)
+                P8XH (One, 0xAB)
+                ADBG ("Exit CS")
+                If (PSCP)
+                {
+                    If (CondRefOf (\_PR.CPU0._PPC))
+                    {
+                        Store (Zero, \_PR.CPU0._PPC)
+                        PNOT ()
+                    }
+                }
+
+                If (PLCS)
+                {
+                    RPL1 ()
+                }
+            }
+
+            P_CS ()
+        }
+    }
+
+    Method (P_CS, 0, Serialized)
+    {
+        If (CondRefOf (\_SB.PCI0.PAUD.PUAM))
+        {
+            \_SB.PCI0.PAUD.PUAM ()
+        }
+
+        If (LEqual (OSYS, 0x07DC))
+        {
+            If (CondRefOf (\_SB.PCI0.XHC.DUAM))
+            {
+                \_SB.PCI0.XHC.DUAM ()
+            }
+        }
+    }
+
     Method (TRAP, 2, Serialized)
     {
         Store (Arg1, SMIF)
@@ -8946,75 +9949,75 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         Return (SMIF)
     }
 
-    Scope (_SB)
-    {
-        Device (BIND)
-        {
-            Name (_HID, "INT33D2")  // _HID: Hardware ID
-            Name (_CID, "PNP0C40")  // _CID: Compatible ID
-            Method (_STA, 0, Serialized)  // _STA: Status
-            {
-                If (LAnd (And (IUBE, One), LEqual (OSYS, 0x07DC)))
-                {
-                    Return (0x0F)
-                }
-
-                Return (Zero)
-            }
-        }
-
-        Device (CIND)
-        {
-            Name (_HID, "INT33D3")  // _HID: Hardware ID
-            Name (_CID, "PNP0C60")  // _CID: Compatible ID
-            Method (_STA, 0, Serialized)  // _STA: Status
-            {
-                If (LAnd (And (IUCE, One), LEqual (OSYS, 0x07DC)))
-                {
-                    Return (0x0F)
-                }
-
-                Return (Zero)
-            }
-        }
-
-        Device (DIND)
-        {
-            Name (_HID, "INT33D4")  // _HID: Hardware ID
-            Name (_CID, "PNP0C70")  // _CID: Compatible ID
-            Method (_STA, 0, Serialized)  // _STA: Status
-            {
-                If (LAnd (And (IUDE, One), LEqual (OSYS, 0x07DC)))
-                {
-                    Return (0x0F)
-                }
-
-                Return (Zero)
-            }
-        }
-    }
-
     Scope (_SB.PCI0)
     {
-        Method (PTMA, 0, Serialized)
+        Method (PTMA, 0, NotSerialized)
         {
             Return (PFMA)
         }
 
-        Method (PTMS, 0, Serialized)
+        Method (PTMS, 0, NotSerialized)
         {
             Return (PFMS)
         }
 
-        Method (PTIA, 0, Serialized)
+        Method (PTIA, 0, NotSerialized)
         {
             Return (PFIA)
         }
 
-        Method (_INI, 0, Serialized)  // _INI: Initialize
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
-            PINI ()
             Store (0x07D0, OSYS)
+            If (CondRefOf (\_OSI, Local0))
+            {
+                If (_OSI ("Linux"))
+                {
+                    Store (0x03E8, OSYS)
+                }
+
+                If (_OSI ("Windows 2001"))
+                {
+                    Store (0x07D1, OSYS)
+                }
+
+                If (_OSI ("Windows 2001 SP1"))
+                {
+                    Store (0x07D1, OSYS)
+                }
+
+                If (_OSI ("Windows 2001 SP2"))
+                {
+                    Store (0x07D2, OSYS)
+                }
+
+                If (_OSI ("Windows 2001.1"))
+                {
+                    Store (0x07D3, OSYS)
+                }
+
+                If (_OSI ("Windows 2006"))
+                {
+                    Store (0x07D6, OSYS)
+                }
+
+                If (_OSI ("Windows 2009"))
+                {
+                    Store (0x07D9, OSYS)
+                }
+
+                If (_OSI ("Windows 2012"))
+                {
+                    Store (0x07DC, OSYS)
+                }
+
+                If (_OSI ("Windows 2013"))
+                {
+                    Store (0x07DD, OSYS)
+                }
+            }
+
+            PINI ()
         }
 
         Method (NHPG, 0, Serialized)
@@ -9022,11 +10025,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Store (Zero, ^RP01.HPEX)
             Store (Zero, ^RP03.HPEX)
             Store (Zero, ^RP04.HPEX)
-            Store (Zero, ^RP05.HPEX)
+            Store (Zero, ^RP06.HPEX)
             Store (One, ^RP01.HPSX)
             Store (One, ^RP03.HPSX)
             Store (One, ^RP04.HPSX)
-            Store (One, ^RP05.HPSX)
+            Store (One, ^RP06.HPSX)
         }
 
         Method (NPME, 0, Serialized)
@@ -9034,11 +10037,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Store (Zero, ^RP01.PMEX)
             Store (Zero, ^RP03.PMEX)
             Store (Zero, ^RP04.PMEX)
-            Store (Zero, ^RP05.PMEX)
+            Store (Zero, ^RP06.PMEX)
             Store (One, ^RP01.PMSX)
             Store (One, ^RP03.PMSX)
             Store (One, ^RP04.PMSX)
-            Store (One, ^RP05.PMSX)
+            Store (One, ^RP06.PMSX)
         }
     }
 
@@ -9050,7 +10053,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Zero, 
             Zero
         })
-        Method (GPRW, 2, Serialized)
+        Method (GPRW, 2, NotSerialized)
         {
             Store (Arg0, Index (PRWP, Zero))
             Store (ShiftLeft (SS1, One), Local0)
@@ -9077,11 +10080,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         Name (OSCO, Zero)
         Method (_OSC, 4, Serialized)  // _OSC: Operating System Capabilities
         {
-            If (LNotEqual (OSCM (Arg0, Arg1, Arg2, Arg3), Zero))
-            {
-                Return (Arg3)
-            }
-
             CreateDWordField (Arg3, Zero, STS0)
             CreateDWordField (Arg3, 0x04, CAP0)
             If (LEqual (Arg0, Buffer (0x10)
@@ -9094,10 +10092,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 {
                     If (And (CAP0, 0x04))
                     {
-                        If (LEqual (RTD3, Zero))
+                        Store (0x04, OSCO)
+                        If (LNotEqual (And (SGMD, 0x0F), 0x02))
                         {
-                            And (CAP0, 0x3B, CAP0)
-                            Or (STS0, 0x10, STS0)
+                            If (LEqual (RTD3, Zero))
+                            {
+                                And (CAP0, 0x3B, CAP0)
+                                Or (STS0, 0x10, STS0)
+                            }
                         }
                     }
 
@@ -9198,11 +10200,429 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
                 Package (0x02)
                 {
-                    "HDAUDIOFUNC_01&VEN_10EC&DEV_0282&SUBSYS_00000000&REV_1000\x04&a02b74b&0&0001", 
+                    "HDAUDIO\\FUNC_01&VEN_10EC&DEV_0282&SUBSYS_00000000&REV_1000\\4&a02b74b&0&0001", 
                     0xFFFFFFFF
                 }
             })
-            Method (_STA, 0, Serialized)  // _STA: Status
+            Name (DEVY, Package (0x12)
+            {
+                Package (0x03)
+                {
+                    "\\_PR.CPU0", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            Zero
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_PR.CPU1", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            Zero
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_PR.CPU2", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            Zero
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_PR.CPU3", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            Zero
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.GFX0", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            0x03
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.SAT0", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            0x03
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.SAT0.PRT0", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x03)
+                        {
+                            0xFF, 
+                            Zero, 
+                            0x81
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.SAT0.PRT1", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x03)
+                        {
+                            0xFF, 
+                            Zero, 
+                            0x81
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.SAT0.PRT2", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x03)
+                        {
+                            0xFF, 
+                            Zero, 
+                            0x81
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.SAT0.PRT3", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x03)
+                        {
+                            0xFF, 
+                            Zero, 
+                            0x81
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.UA00", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            0x03
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.UA01", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            0x03
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.SDHC", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            0x03
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.I2C0", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            0x03
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.I2C1", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            0x03
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.XHC", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            0x03
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "HDAUDIO\\FUNC_01&VEN_10EC&DEV_0282&SUBSYS_00000000&REV_1000", 
+                    Zero, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            0x03
+                        }
+                    }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.ADSP", 
+                    Zero, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            0x03
+                        }
+                    }
+                }
+            })
+            Name (BCCD, Package (0x05)
+            {
+                Package (0x02)
+                {
+                    "\\_SB.PCI0.SAT0", 
+                    Package (0x01)
+                    {
+                        Package (0x03)
+                        {
+                            Package (0x05)
+                            {
+                                One, 
+                                0x08, 
+                                Zero, 
+                                One, 
+                                0xB2
+                            }, 
+
+                            Package (0x03)
+                            {
+                                Zero, 
+                                0xCD, 
+                                One
+                            }, 
+
+                            0x3E80
+                        }
+                    }
+                }, 
+
+                Package (0x02)
+                {
+                    "\\_SB.PCI0.SAT0.PRT0", 
+                    Package (0x01)
+                    {
+                        Package (0x03)
+                        {
+                            Package (0x05)
+                            {
+                                One, 
+                                0x08, 
+                                Zero, 
+                                One, 
+                                0xB2
+                            }, 
+
+                            Package (0x03)
+                            {
+                                Zero, 
+                                0xCD, 
+                                One
+                            }, 
+
+                            0x3E80
+                        }
+                    }
+                }, 
+
+                Package (0x02)
+                {
+                    "\\_SB.PCI0.SAT0.PRT1", 
+                    Package (0x01)
+                    {
+                        Package (0x03)
+                        {
+                            Package (0x05)
+                            {
+                                One, 
+                                0x08, 
+                                Zero, 
+                                One, 
+                                0xB2
+                            }, 
+
+                            Package (0x03)
+                            {
+                                Zero, 
+                                0xCD, 
+                                One
+                            }, 
+
+                            0x3E80
+                        }
+                    }
+                }, 
+
+                Package (0x02)
+                {
+                    "\\_SB.PCI0.SAT0.PRT2", 
+                    Package (0x01)
+                    {
+                        Package (0x03)
+                        {
+                            Package (0x05)
+                            {
+                                One, 
+                                0x08, 
+                                Zero, 
+                                One, 
+                                0xB2
+                            }, 
+
+                            Package (0x03)
+                            {
+                                Zero, 
+                                0xCD, 
+                                One
+                            }, 
+
+                            0x3E80
+                        }
+                    }
+                }, 
+
+                Package (0x02)
+                {
+                    "\\_SB.PCI0.SAT0.PRT3", 
+                    Package (0x01)
+                    {
+                        Package (0x03)
+                        {
+                            Package (0x05)
+                            {
+                                One, 
+                                0x08, 
+                                Zero, 
+                                One, 
+                                0xB2
+                            }, 
+
+                            Package (0x03)
+                            {
+                                Zero, 
+                                0xCD, 
+                                One
+                            }, 
+
+                            0x3E80
+                        }
+                    }
+                }
+            })
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (LGreaterEqual (OSYS, 0x07DC))
                 {
@@ -9220,7 +10640,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (T_0, Zero)
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, Buffer (0x10)
                         {
                             /* 0000 */   0xE0, 0xBF, 0xFE, 0xB8, 0xF8, 0xBA, 0x4B, 0x45,
@@ -9339,6 +10759,103 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     }
                 }
 
+                If (LEqual (Arg0, Buffer (0x10)
+                        {
+                            /* 0000 */   0xA0, 0x40, 0xEB, 0xC4, 0xD2, 0x6C, 0xE2, 0x11,
+                            /* 0008 */   0xBC, 0xFD, 0x08, 0x00, 0x20, 0x0C, 0x9A, 0x66
+                        }))
+                {
+                    If (LEqual (Arg2, Zero))
+                    {
+                        Return (Buffer (One)
+                        {
+                             0x07
+                        })
+                    }
+
+                    If (LEqual (Arg2, One))
+                    {
+                        If (LNotEqual (And (PEPC, 0x03), One))
+                        {
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x06)), One))
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x07)), One))
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x08)), One))
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x09)), One))
+                        }
+
+                        If (LNotEqual (And (PEPC, 0x03), 0x02))
+                        {
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x05)), One))
+                            If (LNot (And (SPST, One)))
+                            {
+                                Store (Zero, Index (DerefOf (Index (DEVY, 0x06)), One))
+                            }
+
+                            If (LNot (And (SPST, 0x02)))
+                            {
+                                Store (Zero, Index (DerefOf (Index (DEVY, 0x07)), One))
+                            }
+
+                            If (LNot (And (SPST, 0x04)))
+                            {
+                                Store (Zero, Index (DerefOf (Index (DEVY, 0x08)), One))
+                            }
+
+                            If (LNot (And (SPST, 0x08)))
+                            {
+                                Store (Zero, Index (DerefOf (Index (DEVY, 0x09)), One))
+                            }
+                        }
+
+                        If (LEqual (And (PEPC, 0x04), Zero))
+                        {
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x0A)), One))
+                        }
+
+                        If (LEqual (And (PEPC, 0x08), Zero))
+                        {
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x0B)), One))
+                        }
+
+                        If (LEqual (And (PEPC, 0x10), Zero))
+                        {
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x0C)), One))
+                        }
+
+                        If (LEqual (And (PEPC, 0x20), Zero))
+                        {
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x0D)), One))
+                        }
+
+                        If (LEqual (And (PEPC, 0x40), Zero))
+                        {
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x0E)), One))
+                        }
+
+                        If (LEqual (And (PEPC, 0x80), Zero))
+                        {
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x0F)), One))
+                        }
+
+                        If (LEqual (And (PEPC, 0x0100), Zero))
+                        {
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x10)), One))
+                        }
+
+                        If (LEqual (And (PEPC, 0x0200), Zero))
+                        {
+                            Store (Zero, Index (DerefOf (Index (DEVY, 0x11)), One))
+                        }
+
+                        Return (DEVY)
+                    }
+
+                    If (LEqual (Arg2, 0x02))
+                    {
+                        Return (BCCD)
+                    }
+                }
+
                 Return (One)
             }
         }
@@ -9349,7 +10866,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         Device (BTKL)
         {
             Name (_HID, "INT3420")  // _HID: Hardware ID
-            Method (_STA, 0, Serialized)  // _STA: Status
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (_OSI ("Windows 2012"))
                 {
@@ -9372,14 +10889,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Or (GL0A, 0x80, GL0A)
             }
 
-            Method (PSTS, 0, Serialized)
+            Method (PSTS, 0, NotSerialized)
             {
                 Return (RDGP (0x57))
             }
         }
     }
 
-    Name (SRMB, 0xF7FF0000)
     Scope (_SB.PCI0)
     {
         Device (PDRC)
@@ -9434,7 +10950,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     _Y30)
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
-                    0x00001000,         // Address Length
+                    0x00010000,         // Address Length
                     _Y31)
             })
             Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
@@ -9476,30 +10992,30 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Scope (_GPE)
     {
-        Method (_L09, 0, Serialized)  // _Lxx: Level-Triggered GPE
+        Method (_L09, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            If (LEqual (RP1D, Zero))
+            If (LAnd (LEqual (RP1D, Zero), LEqual (\_SB.PCI0.RP01.RPAV, One)))
             {
                 \_SB.PCI0.RP01.HPME ()
                 Notify (\_SB.PCI0.RP01, 0x02)
             }
 
-            If (LEqual (RP3D, Zero))
+            If (LAnd (LEqual (RP3D, Zero), LEqual (\_SB.PCI0.RP03.RPAV, One)))
             {
                 \_SB.PCI0.RP03.HPME ()
                 Notify (\_SB.PCI0.RP03, 0x02)
             }
 
-            If (LEqual (RP4D, Zero))
+            If (LAnd (LEqual (RP4D, Zero), LEqual (\_SB.PCI0.RP04.RPAV, One)))
             {
                 \_SB.PCI0.RP04.HPME ()
                 Notify (\_SB.PCI0.RP04, 0x02)
             }
 
-            If (LEqual (RP5D, Zero))
+            If (LAnd (LEqual (RP6D, Zero), LEqual (\_SB.PCI0.RP06.RPAV, One)))
             {
-                \_SB.PCI0.RP05.HPME ()
-                Notify (\_SB.PCI0.RP05, 0x02)
+                \_SB.PCI0.RP06.HPME ()
+                Notify (\_SB.PCI0.RP06, 0x02)
             }
 
             If (LEqual (\_SB.PCI0.D1F0, One))
@@ -9522,40 +11038,32 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             }
         }
 
-        Method (_L0D, 0, Serialized)  // _Lxx: Level-Triggered GPE
+        Method (_L0D, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             If (LAnd (\_SB.PCI0.EHC1.PMEE, \_SB.PCI0.EHC1.PMES))
             {
-                Store (One, \_SB.PCI0.EHC1.PMES)
-                Store (Zero, \_SB.PCI0.EHC1.PMEE)
                 Notify (\_SB.PCI0.EHC1, 0x02)
             }
 
             If (LAnd (\_SB.PCI0.EHC2.PMEE, \_SB.PCI0.EHC2.PMES))
             {
-                Store (One, \_SB.PCI0.EHC2.PMES)
-                Store (Zero, \_SB.PCI0.EHC2.PMEE)
                 Notify (\_SB.PCI0.EHC2, 0x02)
             }
 
             If (LAnd (\_SB.PCI0.XHC.PMEE, \_SB.PCI0.XHC.PMES))
             {
-                Store (One, \_SB.PCI0.XHC.PMES)
-                Store (Zero, \_SB.PCI0.XHC.PMEE)
                 Notify (\_SB.PCI0.XHC, 0x02)
             }
 
             If (LAnd (\_SB.PCI0.HDEF.PMEE, \_SB.PCI0.HDEF.PMES))
             {
-                Store (One, \_SB.PCI0.HDEF.PMES)
-                Store (Zero, \_SB.PCI0.HDEF.PMEE)
                 Notify (\_SB.PCI0.HDEF, 0x02)
             }
 
             Notify (\_SB.PCI0.GLAN, 0x02)
         }
 
-        Method (_L01, 0, Serialized)  // _Lxx: Level-Triggered GPE
+        Method (_L01, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             Add (L01C, One, L01C)
             P8XH (Zero, One)
@@ -9582,7 +11090,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             If (LAnd (LEqual (RP3D, Zero), \_SB.PCI0.RP03.HPSX))
             {
-                Sleep (0x64)
+                If (LAnd (LNotEqual (BID, BICO), LNotEqual (BID, BICC)))
+                {
+                    Sleep (0x64)
+                }
+
                 If (\_SB.PCI0.RP03.PDCX)
                 {
                     Store (One, \_SB.PCI0.RP03.PDCX)
@@ -9592,7 +11104,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (Zero, \_SB.PCI0.RP03.L0SE)
                     }
 
-                    Notify (\_SB.PCI0.RP03, Zero)
+                    If (LAnd (LNotEqual (BID, BICO), LNotEqual (BID, BICC)))
+                    {
+                        Notify (\_SB.PCI0.RP03, Zero)
+                    }
                 }
                 Else
                 {
@@ -9620,28 +11135,28 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 }
             }
 
-            If (LAnd (LEqual (RP5D, Zero), \_SB.PCI0.RP05.HPSX))
+            If (LAnd (LEqual (RP6D, Zero), \_SB.PCI0.RP06.HPSX))
             {
                 Sleep (0x64)
-                If (\_SB.PCI0.RP05.PDCX)
+                If (\_SB.PCI0.RP06.PDCX)
                 {
-                    Store (One, \_SB.PCI0.RP05.PDCX)
-                    Store (One, \_SB.PCI0.RP05.HPSX)
-                    If (LNot (\_SB.PCI0.RP05.PDSX))
+                    Store (One, \_SB.PCI0.RP06.PDCX)
+                    Store (One, \_SB.PCI0.RP06.HPSX)
+                    If (LNot (\_SB.PCI0.RP06.PDSX))
                     {
-                        Store (Zero, \_SB.PCI0.RP05.L0SE)
+                        Store (Zero, \_SB.PCI0.RP06.L0SE)
                     }
 
-                    Notify (\_SB.PCI0.RP05, Zero)
+                    Notify (\_SB.PCI0.RP06, Zero)
                 }
                 Else
                 {
-                    Store (One, \_SB.PCI0.RP05.HPSX)
+                    Store (One, \_SB.PCI0.RP06.HPSX)
                 }
             }
         }
 
-        Method (_L02, 0, Serialized)  // _Lxx: Level-Triggered GPE
+        Method (_L02, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             Store (Zero, GPEC)
             If (CondRefOf (DTSE))
@@ -9662,7 +11177,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             }
         }
 
-        Method (_L06, 0, Serialized)  // _Lxx: Level-Triggered GPE
+        Method (_L06, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             If (LAnd (\_SB.PCI0.GFX0.GSSE, LNot (GSMI)))
             {
@@ -9670,37 +11185,54 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             }
         }
 
-        Method (_L07, 0, Serialized)  // _Lxx: Level-Triggered GPE
+        Method (_L07, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             Store (0x20, \_SB.PCI0.SBUS.HSTS)
         }
 
-        Method (_L1E, 0, Serialized)  // _Lxx: Level-Triggered GPE
+        Method (_L1E, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             If (LEqual (ECON, Zero))
             {
                 Return (Zero)
             }
 
-            If (LNotEqual (LIDS, \_SB.PCI0.LPCB.H_EC.LSTE))
+            If (LNotEqual (LIDS (), \_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.LSTE))))
             {
-                Store (\_SB.PCI0.LPCB.H_EC.LSTE, LIDS)
-            }
-            Else
-            {
-                If (LEqual (BNUM, Zero))
+                Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.LSTE)), LIDS)
+                If (IGDS)
                 {
-                    If (LNotEqual (PWRS, \_SB.PCI0.LPCB.H_EC.VPWR))
-                    {
-                        Store (\_SB.PCI0.LPCB.H_EC.VPWR, PWRS)
-                        PNOT ()
-                    }
+                    If (\_SB.PCI0.GFX0.GLID (LIDS (), Or (0x80000000, \_SB.PCI0.GFX0.CLID, \_SB.PCI0.GFX0.CLID)))
+										{
+											Notify (\_SB.LID0, 0x80)
+										}
+                        Else
+                            {
+                                If (LEqual (BNUM, Zero))
+                                {
+                                    If (LNotEqual (PWRS, \_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.VPWR))))
+                                    {
+                                        Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.VPWR)), PWRS)
+                                        PNOT ()
+                                    }
+                                }
+
+                                Notify (\_SB.PWRB, 0x02)
+                            }
+														Return (Zero)
                 }
-
-                Notify (\_SB.PWRB, 0x02)
             }
+						Return (Zero)
+        }
 
-            Return (Zero)
+        Method (_L00, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        {
+            If (LEqual (BID, BRH))
+            {
+                ADBG ("Rotation Lock")
+                Sleep (0x03E8)
+                \_SB.PCI0.GFX0.IUEH (0x04)
+            }
         }
     }
 
@@ -9725,7 +11257,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Store (One, VFN0)
                 If (LAnd (ECON, ETMD))
                 {
-                    Store (AC0F, \_SB.PCI0.LPCB.H_EC.PENV)
+                    \_SB.PCI0.LPCB.H_EC.ECWT (AC0F, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                     \_SB.PCI0.LPCB.H_EC.ECMD (0x1A)
                 }
             }
@@ -9737,11 +11269,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 {
                     If (LNotEqual (VFN1, Zero))
                     {
-                        Store (AC1F, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (AC1F, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                     }
                     Else
                     {
-                        Store (Zero, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                     }
 
                     \_SB.PCI0.LPCB.H_EC.ECMD (0x1A)
@@ -9773,7 +11305,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 {
                     If (LEqual (VFN0, Zero))
                     {
-                        Store (AC1F, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (AC1F, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                         \_SB.PCI0.LPCB.H_EC.ECMD (0x1A)
                     }
                 }
@@ -9786,11 +11318,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 {
                     If (LNotEqual (VFN2, Zero))
                     {
-                        Store (Zero, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                     }
                     Else
                     {
-                        Store (Zero, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                     }
 
                     \_SB.PCI0.LPCB.H_EC.ECMD (0x1A)
@@ -9822,7 +11354,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 {
                     If (LEqual (VFN1, Zero))
                     {
-                        Store (Zero, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                         \_SB.PCI0.LPCB.H_EC.ECMD (0x1A)
                     }
                 }
@@ -9835,11 +11367,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 {
                     If (LNotEqual (VFN3, Zero))
                     {
-                        Store (Zero, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                     }
                     Else
                     {
-                        Store (Zero, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                     }
 
                     \_SB.PCI0.LPCB.H_EC.ECMD (0x1A)
@@ -9871,7 +11403,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 {
                     If (LEqual (VFN2, Zero))
                     {
-                        Store (Zero, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                         \_SB.PCI0.LPCB.H_EC.ECMD (0x1A)
                     }
                 }
@@ -9884,11 +11416,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 {
                     If (LNotEqual (VFN4, Zero))
                     {
-                        Store (Zero, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                     }
                     Else
                     {
-                        Store (Zero, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                     }
 
                     \_SB.PCI0.LPCB.H_EC.ECMD (0x1A)
@@ -9920,7 +11452,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 {
                     If (LEqual (VFN3, Zero))
                     {
-                        Store (Zero, \_SB.PCI0.LPCB.H_EC.PENV)
+                        \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                         \_SB.PCI0.LPCB.H_EC.ECMD (0x1A)
                     }
                 }
@@ -9931,7 +11463,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Store (Zero, VFN4)
                 If (LAnd (ECON, ETMD))
                 {
-                    Store (Zero, \_SB.PCI0.LPCB.H_EC.PENV)
+                    \_SB.PCI0.LPCB.H_EC.ECWT (Zero, RefOf (\_SB.PCI0.LPCB.H_EC.PENV))
                     \_SB.PCI0.LPCB.H_EC.ECMD (0x1A)
                 }
             }
@@ -10062,7 +11594,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
                 If (ECON)
                 {
-                    Store (\_SB.PCI0.LPCB.H_EC.PLMX, Local0)
+                    Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.PLMX)), Local0)
                     Add (0x0AAC, Multiply (Local0, 0x0A), Local0)
                     Store (Local0, PTMP)
                     Return (Local0)
@@ -10134,9 +11666,9 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
                 If (ECON)
                 {
-                    Store (\_SB.PCI0.LPCB.H_EC.PECH, Local0)
+                    Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.PECH)), Local0)
                     Multiply (Local0, 0x0A, Local0)
-                    Store (\_SB.PCI0.LPCB.H_EC.PECL, Local1)
+                    Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.PECL)), Local1)
                     ShiftRight (Local1, 0x02, Local1)
                     Store (Divide (Multiply (Local1, 0x0A), 0x40, ), Local1)
                     Add (Local0, Local1, Local0)
@@ -10223,12 +11755,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Device (WCAM)
     {
-        Name (_ADR, One)  // _ADR: Address
+        Name (_ADR, 0x05)  // _ADR: Address
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
             Name (UPCP, Package (0x04)
             {
-                0xFF, 
+                Zero, 
                 0xFF, 
                 Zero, 
                 Zero
@@ -10243,7 +11775,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Buffer (0x14)
                 {
                     /* 0000 */   0x82, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                    /* 0008 */   0x25, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    /* 0008 */   0x24, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                     /* 0010 */   0xC8, 0x00, 0xA0, 0x00
                 }
             })
@@ -10253,7 +11785,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
     Scope (_TZ)
     {
-        Method (KELV, 1, Serialized)
+        Method (KELV, 1, NotSerialized)
         {
             And (Arg0, 0xFF, Local0)
             Multiply (Local0, 0x0A, Local0)
@@ -10263,7 +11795,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
         ThermalZone (THRM)
         {
-            Method (_TMP, 0, Serialized)  // _TMP: Temperature
+            Method (_TMP, 0, NotSerialized)  // _TMP: Temperature
             {
                 If (\_SB.PCI0.LPCB.EC.MYEC)
                 {
@@ -10285,7 +11817,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 }
             }
 
-            Method (_CRT, 0, Serialized)  // _CRT: Critical Temperature
+            Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
                 Return (KELV (0x64))
             }
@@ -10340,7 +11872,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 APMC,   8
             }
 
-            Method (_REG, 2, Serialized)  // _REG: Region Availability
+            Method (_REG, 2, NotSerialized)  // _REG: Region Availability
             {
                 If (LEqual (Arg0, 0x03))
                 {
@@ -10441,9 +11973,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 SMCM,   8, 
                 SMD0,   264, 
                 SMAA,   8, 
-                Offset (0x29), 
-                DMST,   3, 
-                Offset (0x2A), 
                 Offset (0x2C), 
                 HSTT,   1, 
                 Offset (0x2D), 
@@ -10550,12 +12079,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Offset (0xE4), 
                     ,   1, 
                 TURB,   1, 
-                Offset (0xE6), 
-                DBG,    8, 
                 Offset (0xED), 
                 SCIC,   8, 
-                Offset (0xEF), 
-                BRTP,   8, 
                 Offset (0xF1), 
                 BRLV,   8, 
                 Offset (0xFE), 
@@ -10564,7 +12089,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             }
 
             Mutex (GC6M, 0x00)
-            Method (ECNV, 1, Serialized)
+            Method (ECNV, 1, NotSerialized)
             {
                 Acquire (GC6M, 0xFFFF)
                 If (LEqual (Arg0, Zero))
@@ -10581,7 +12106,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             }
 
             Mutex (SG6M, 0x00)
-            Method (ESGX, 1, Serialized)
+            Method (ESGX, 1, NotSerialized)
             {
                 Acquire (SG6M, 0xFFFF)
                 If (LEqual (Arg0, Zero))
@@ -10610,10 +12135,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
 
             Device (KB9X)
             {
-                Name (_HID, EisaId ("ENE0110"))  // _HID: Hardware ID
-                Method (_STA, 0, Serialized)  // _STA: Status
+                Name (_HID, "ENE0110")  // _HID: Hardware ID
+                Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
-                    If (LEqual (OSVR, 0x04))
+                    If (LGreaterEqual (OSVR, 0x04))
                     {
                         Return (0x0F)
                     }
@@ -10645,7 +12170,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Name (_HID, "ACPI0003")  // _HID: Hardware ID
                 Name (BFLG, One)
                 Name (ACP, One)
-                Method (_PSR, 0, Serialized)  // _PSR: Power Source
+                Method (_PSR, 0, NotSerialized)  // _PSR: Power Source
                 {
                     If (POWS)
                     {
@@ -10698,7 +12223,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 {
                     _SB
                 })
-                Method (_STA, 0, Serialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     If (MYEC)
                     {
@@ -10717,7 +12242,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     }
                 }
 
-                Method (_BIF, 0, Serialized)  // _BIF: Battery Information
+                Method (_BIF, 0, NotSerialized)  // _BIF: Battery Information
                 {
                     If (MYEC)
                     {
@@ -10733,7 +12258,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Return (BIF0)
                 }
 
-                Method (_BST, 0, Serialized)  // _BST: Battery Status
+                Method (_BST, 0, NotSerialized)  // _BST: Battery Status
                 {
                     If (MYEC)
                     {
@@ -10747,7 +12272,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Return (STAT)
                 }
 
-                Method (IVBI, 0, Serialized)
+                Method (IVBI, 0, NotSerialized)
                 {
                     Store (0xFFFFFFFF, Index (BIF0, One))
                     Store (0xFFFFFFFF, Index (BIF0, 0x02))
@@ -10758,7 +12283,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Store ("Wrong", Index (BIF0, 0x0C))
                 }
 
-                Method (IVBS, 0, Serialized)
+                Method (IVBS, 0, NotSerialized)
                 {
                     Store (Zero, Index (STAT, Zero))
                     Store (0xFFFFFFFF, Index (STAT, One))
@@ -10766,7 +12291,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     Store (0x2710, Index (STAT, 0x03))
                 }
 
-                Method (UPBI, 0, Serialized)
+                Method (UPBI, 0, NotSerialized)
                 {
                     Store (Zero, Local0)
                     Store (Zero, Local1)
@@ -10783,7 +12308,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     }
                     Else
                     {
-                        Store ("BTY-M6D", Index (BIF0, 0x09))
+                        Store ("PC-VP-BP77", Index (BIF0, 0x09))
                     }
 
                     Store (MFCH, Local0)
@@ -10811,7 +12336,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     }
                 }
 
-                Method (UPBS, 0, Serialized)
+                Method (UPBS, 0, NotSerialized)
                 {
                     Store (Zero, Local0)
                     Store (Zero, Local1)
@@ -10914,7 +12439,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Device (LID0)
             {
                 Name (_HID, EisaId ("PNP0C0D"))  // _HID: Hardware ID
-                Method (_LID, 0, Serialized)  // _LID: Lid Status
+                Method (_LID, 0, NotSerialized)  // _LID: Lid Status
                 {
                     If (MYEC)
                     {
@@ -10935,44 +12460,112 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 })
             }
 
-            Method (_Q61, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q60, 0, NotSerialized)  // _Qxx: EC Query
+            {
+                Store (0x60, SCIC)
+                Store (0x60, DBG8)
+                Store ("------- GC6I-SCI _Q event --------", Debug)
+                CreateField (^^^PEG0.PEGP.TGPC, 0x0A, 0x02, PRGE)
+                If (LEqual (ToInteger (PRGE), Zero))
+                {
+                    Store (One, ^^^PEG0.LNKD)
+                }
+
+                ^^^PEG0.PEGP.SGPO (HLRS (One, ^^^PEG0.PEGP.SGPO (PWEN (Zero))))
+									If (LEqual (ToInteger (PRGE), 0x02))
+                            {
+                                Store (One, ^^^PEG0.LNKD)
+                            }
+            }
+
+            Method (_Q61, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x61, SCIC)
                 Store (0x61, DBG8)
                 Store ("reserve", Debug)
             }
 
-            Method (_Q70, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q70, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x70, SCIC)
                 Store (0x70, DBG8)
             }
 
-            Method (_Q78, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q78, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x78, SCIC)
                 Store (0x78, DBG8)
             }
 
-            Method (_Q80, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q80, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x80, SCIC)
                 Store (0x80, DBG8)
+                Store (One, CHET)
+                Or (One, PTHR, PTHR)
+                Notify (\_PR.CPU0, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU1, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU2, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU3, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU4, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU5, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU6, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU7, 0x80)
             }
 
-            Method (_Q81, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q81, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x81, SCIC)
                 Store (0x81, DBG8)
+                Store (One, CHET)
+                Or (One, PTHR, PTHR)
+                Notify (\_PR.CPU0, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU1, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU2, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU3, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU4, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU5, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU6, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU7, 0x80)
             }
 
-            Method (_Q82, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q82, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x82, SCIC)
                 Store (0x82, DBG8)
+                And (0xFE, PTHR, PTHR)
+                Notify (\_PR.CPU0, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU1, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU2, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU3, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU4, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU5, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU6, 0x80)
+                Sleep (0x64)
+                Notify (\_PR.CPU7, 0x80)
             }
 
-            Method (_Q83, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q83, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x83, SCIC)
                 Store (0x83, DBG8)
@@ -10981,31 +12574,46 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 If (LEqual (Local0, One))
                 {
                     Store (One, ^ADP1.ACP)
+                    If (LGreaterEqual (OSVR, 0x03)) {}
+                    Else
+                    {
+                        Store (0x08, Local1)
+                        Store (Local1, BRLV)
+                    }
+
                     Store (One, PWRS)
                 }
                 Else
                 {
                     Store (Zero, ^ADP1.ACP)
+                    If (LGreaterEqual (OSVR, 0x03)) {}
+                    Else
+                    {
+                        Store (Zero, Local1)
+                        Store (Local1, BRLV)
+                    }
+
                     Store (Zero, PWRS)
                 }
 
+                PNOT ()
                 Notify (ADP1, 0x80)
             }
 
-            Method (_Q84, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q84, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x84, SCIC)
                 Store (0x84, DBG8)
                 Notify (LID0, 0x80)
             }
 
-            Method (_QBD, 0, Serialized)  // _Qxx: EC Query
+            Method (_QBD, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0xBD, SCIC)
                 Store (0xBD, DBG8)
             }
 
-            Method (_Q85, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q85, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x85, SCIC)
                 Store (0x85, DBG8)
@@ -11013,13 +12621,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Notify (\_TZ.THRM, 0x80)
             }
 
-            Method (_Q86, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q86, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x86, SCIC)
                 Store (0x86, DBG8)
             }
 
-            Method (_Q87, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q87, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x87, SCIC)
                 Store (0x87, DBG8)
@@ -11039,25 +12647,25 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Notify (ADP1, 0x80)
             }
 
-            Method (_Q77, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q77, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x77, SCIC)
                 Store (0x77, DBG8)
             }
 
-            Method (_Q88, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q88, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x88, SCIC)
                 Store (0x88, DBG8)
             }
 
-            Method (_Q89, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q89, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x89, SCIC)
                 Store (0x89, DBG8)
             }
 
-            Method (_Q8A, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q8A, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x8A, SCIC)
                 Store (0x8A, DBG8)
@@ -11065,41 +12673,34 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Notify (\_TZ.THRM, 0x80)
             }
 
-            Method (_Q8B, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q8B, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x8B, SCIC)
                 Store (0x8B, DBG8)
             }
 
-            Method (_Q8C, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q8C, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x8C, SCIC)
                 Store (0x8C, DBG8)
             }
 
-            Method (_Q90, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q90, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x90, SCIC)
                 Store (0x90, DBG8)
             }
 
-            Method (_Q92, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q92, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x92, DBG8)
                 Store (0x92, SCIC)
             }
 
-            Method (_Q93, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q93, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x93, DBG8)
                 Store (0x93, SCIC)
-            }
-
-            Method (_Q95, 0, Serialized)  // _Qxx: EC Query
-            {
-                Store (0x95, SCIC)
-                Store (0x95, DBG8)
-                Notify (^^^PEG0.PEGP, 0x81)
             }
 
             OperationRegion (\SCRP, SystemIO, 0x1280, 0x04)
@@ -11111,31 +12712,30 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 CR03,   8
             }
 
-            Method (_QB4, 0, Serialized)  // _Qxx: EC Query
+            Method (_QB4, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0xB4, SCIC)
                 Store (0xB4, DBG8)
                 If (LGreaterEqual (OSVR, 0x02))
                 {
-                    Notify (^^^PEG0.PEGP, 0x80)
-                    Store (0xC1, DBG8)
+                    ^^^GFX0.GHDS (Zero)
                     Sleep (0x02EE)
                 }
             }
 
-            Method (_QB5, 0, Serialized)  // _Qxx: EC Query
+            Method (_QB5, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0xB5, SCIC)
                 Store (0xB5, DBG8)
             }
 
-            Method (_QB6, 0, Serialized)  // _Qxx: EC Query
+            Method (_QB6, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0xB6, SCIC)
                 Store (0xB6, DBG8)
             }
 
-            Method (_QB7, 0, Serialized)  // _Qxx: EC Query
+            Method (_QB7, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0xB7, SCIC)
                 Store (0xB7, DBG8)
@@ -11145,7 +12745,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 }
             }
 
-            Method (_QB8, 0, Serialized)  // _Qxx: EC Query
+            Method (_QB8, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0xB8, SCIC)
                 Store (0xB8, DBG8)
@@ -11155,14 +12755,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 }
             }
 
-            Method (_QB9, 0, Serialized)  // _Qxx: EC Query
+            Method (_QB9, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0xB9, SCIC)
                 Store (0xB9, DBG8)
                 Store (Zero, HSTT)
             }
 
-            Method (_Q74, 0, Serialized)  // _Qxx: EC Query
+            Method (_Q74, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x74, SCIC)
                 Store (0x74, DBG8)
@@ -11174,35 +12774,35 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 }
             }
 
-            Method (_QD1, 0, Serialized)  // _Qxx: EC Query
+            Method (_QD1, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Notify (^^^PEG0.PEGP, 0xD1)
                 Store (0xD1, SCIC)
                 Store (0xD1, DBG8)
             }
 
-            Method (_QD2, 0, Serialized)  // _Qxx: EC Query
+            Method (_QD2, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Notify (^^^PEG0.PEGP, 0xD2)
                 Store (0xD2, SCIC)
                 Store (0xD2, DBG8)
             }
 
-            Method (_QD3, 0, Serialized)  // _Qxx: EC Query
+            Method (_QD3, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Notify (^^^PEG0.PEGP, 0xD3)
                 Store (0xD3, SCIC)
                 Store (0xD3, DBG8)
             }
 
-            Method (_QD4, 0, Serialized)  // _Qxx: EC Query
+            Method (_QD4, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Notify (^^^PEG0.PEGP, 0xD4)
                 Store (0xD4, SCIC)
                 Store (0xD4, DBG8)
             }
 
-            Method (_QD5, 0, Serialized)  // _Qxx: EC Query
+            Method (_QD5, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Notify (^^^PEG0.PEGP, 0xD5)
                 Store (0xD5, SCIC)
@@ -11306,7 +12906,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                 Noop
             }
 
-            Method (_QC0, 0, Serialized)  // _Qxx: EC Query
+            Method (_QC0, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0xC0, ^SCM0.TDED)
                 Store (0xC0, DBG8)
@@ -11498,7 +13098,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                     TDFF,   8
                 }
 
-                Method (WQAA, 1, Serialized)
+                Method (WQAA, 1, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -11703,11 +13303,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (TDBB, Local0)
                         Return (Local0)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WQAB, 1, Serialized)
+                Method (WQAB, 1, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -11732,11 +13331,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (TD2C, Local1)
                         Return (Local1)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WQAC, 1, Serialized)
+                Method (WQAC, 1, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -11755,11 +13353,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (TDBF, Local2)
                         Return (Local2)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WQAD, 1, Serialized)
+                Method (WQAD, 1, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -11856,11 +13453,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (TD4E, Local0)
                         Return (Local0)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WQAE, 1, Serialized)
+                Method (WQAE, 1, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -11945,11 +13541,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (TD66, Local0)
                         Return (Local0)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WQAF, 1, Serialized)
+                Method (WQAF, 1, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -12064,11 +13659,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (TD79, Local0)
                         Return (Local0)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WQAG, 1, Serialized)
+                Method (WQAG, 1, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -12177,11 +13771,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (TD90, Local0)
                         Return (Local0)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WQAH, 1, Serialized)
+                Method (WQAH, 1, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -12308,11 +13901,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (TDE3, Local0)
                         Return (Local0)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WQAI, 1, Serialized)
+                Method (WQAI, 1, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -12362,11 +13954,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (TDC8, Local0)
                         Return (Local0)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WSAA, 2, Serialized)
+                Method (WSAA, 2, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -12571,11 +14162,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (Arg1, TDBB)
                         Return (TDBB)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WSAB, 2, Serialized)
+                Method (WSAB, 2, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -12600,11 +14190,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (Arg1, TD2C)
                         Return (TD2C)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WSAC, 2, Serialized)
+                Method (WSAC, 2, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -12623,11 +14212,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (Arg1, TDBF)
                         Return (TDBF)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WSAD, 2, Serialized)
+                Method (WSAD, 2, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -12724,11 +14312,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (Arg1, TD4E)
                         Return (TD4E)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WSAE, 2, Serialized)
+                Method (WSAE, 2, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -12813,11 +14400,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (Arg1, TD66)
                         Return (TD66)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WSAF, 2, Serialized)
+                Method (WSAF, 2, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -12932,11 +14518,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (Arg1, TD79)
                         Return (TD79)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WSAG, 2, Serialized)
+                Method (WSAG, 2, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -13045,11 +14630,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (Arg1, TD90)
                         Return (TD90)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WSAH, 2, Serialized)
+                Method (WSAH, 2, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -13176,11 +14760,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (Arg1, TDE3)
                         Return (TDE3)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
-                Method (WSAI, 2, Serialized)
+                Method (WSAI, 2, NotSerialized)
                 {
                     If (LEqual (Arg0, Zero))
                     {
@@ -13229,8 +14812,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
                         Store (Arg1, TDC8)
                         Return (TDC8)
                     }
-
-                    Return (Zero)
+										Return (Zero)
                 }
 
                 Method (_WED, 1, Serialized)  // _Wxx: Wake Event
@@ -13314,205 +14896,311 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         }
     }
 
-    Name (TPMF, Zero)
-    Scope (_SB)
+    Device (_SB.PCI0.LPCB.TPM)
     {
-        Device (PTMD)
+        Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
         {
-            Name (_HID, EisaId ("INT3394"))  // _HID: Hardware ID
-            Name (_CID, EisaId ("PNP0C02"))  // _CID: Compatible ID
-            Name (IVER, 0x00010000)
-            Name (GSCV, 0x69)
-            Method (GACI, 0, Serialized)
+            If (TCMF) {}
+            Else
             {
-                OperationRegion (GCAD, SystemMemory, 0xA9A82018, 0x0578)
-                Field (GCAD, ByteAcc, NoLock, Preserve)
-                {
-                    XBUF,   11200
-                }
+                Return (0x310CD041)
+            }
+						Return (Zero)
+        }
 
-                Name (XTMP, Buffer (0x0578) {})
-                Store (XBUF, XTMP)
-                Name (RPKG, Package (0x02) {})
-                Store (Zero, Index (RPKG, Zero))
-                Store (XTMP, Index (RPKG, One))
-                Return (RPKG)
+        Name (_STR, Unicode ("TPM 1.2 Device"))  // _STR: Description String
+        Name (_UID, One)  // _UID: Unique ID
+        Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
+        {
+            Memory32Fixed (ReadOnly,
+                0xFED40000,         // Address Base
+                0x00005000,         // Address Length
+                )
+        })
+        OperationRegion (TMMB, SystemMemory, 0xFED40000, 0x5000)
+        Field (TMMB, ByteAcc, Lock, Preserve)
+        {
+            ACCS,   8, 
+            Offset (0x18), 
+            TSTA,   8, 
+            TBCA,   8, 
+            Offset (0xF00), 
+            TVID,   16, 
+            TDID,   16
+        }
+
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            If (TPMF)
+            {
+                Return (0x0F)
             }
 
-            Method (GDSV, 1, Serialized)
+            Return (Zero)
+        }
+    }
+
+    Scope (_SB.PCI0.LPCB.TPM)
+    {
+        OperationRegion (ASMI, SystemIO, SMIA, One)
+        Field (ASMI, ByteAcc, NoLock, Preserve)
+        {
+            INQ,    8
+        }
+
+        OperationRegion (BSMI, SystemIO, SMIB, One)
+        Field (BSMI, ByteAcc, NoLock, Preserve)
+        {
+            DAT,    8
+        }
+
+        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        {
+            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            If (LEqual (Arg0, Buffer (0x10)
+                    {
+                        /* 0000 */   0xA6, 0xFA, 0xDD, 0x3D, 0x1B, 0x36, 0xB4, 0x4E,
+                        /* 0008 */   0xA4, 0x24, 0x8D, 0x10, 0x08, 0x9D, 0x16, 0x53
+                    }))
             {
-                Name (DM00, Package (0x02)
+                While (One)
                 {
-                    Zero, 
-                    Buffer (0x58)
+                    Store (ToInteger (Arg2), T_0)
+                    If (LEqual (T_0, Zero))
                     {
-                        /* 0000 */   0x08, 0x00, 0x00, 0x00, 0x20, 0x03, 0x00, 0x00,
-                        /* 0008 */   0x0A, 0x00, 0x00, 0x00, 0xE8, 0x03, 0x00, 0x00,
-                        /* 0010 */   0x0C, 0x00, 0x00, 0x00, 0xB0, 0x04, 0x00, 0x00,
-                        /* 0018 */   0x0E, 0x00, 0x00, 0x00, 0x78, 0x05, 0x00, 0x00,
-                        /* 0020 */   0x10, 0x00, 0x00, 0x00, 0x40, 0x06, 0x00, 0x00,
-                        /* 0028 */   0x12, 0x00, 0x00, 0x00, 0x08, 0x07, 0x00, 0x00,
-                        /* 0030 */   0x14, 0x00, 0x00, 0x00, 0xD0, 0x07, 0x00, 0x00,
-                        /* 0038 */   0x16, 0x00, 0x00, 0x00, 0x98, 0x08, 0x00, 0x00,
-                        /* 0040 */   0x18, 0x00, 0x00, 0x00, 0x60, 0x09, 0x00, 0x00,
-                        /* 0048 */   0x1A, 0x00, 0x00, 0x00, 0x28, 0x0A, 0x00, 0x00,
-                        /* 0050 */   0x1C, 0x00, 0x00, 0x00, 0xF0, 0x0A, 0x00, 0x00
-                    }
-                })
-                Name (RF00, Package (0x02)
-                {
-                    Zero, 
-                    Buffer (0x10)
-                    {
-                        /* 0000 */   0x64, 0x00, 0x00, 0x00, 0x64, 0x00, 0x00, 0x00,
-                        /* 0008 */   0x85, 0x00, 0x00, 0x00, 0x85, 0x00, 0x00, 0x00
-                    }
-                })
-                If (LEqual (Arg0, 0x13))
-                {
-                    Return (DM00)
-                }
-
-                If (LEqual (Arg0, 0x49))
-                {
-                    Return (RF00)
-                }
-
-                Name (PL1T, Package (0x02)
-                {
-                    Zero, 
-                    Buffer (0xC0)
-                    {
-                        /* 0000 */   0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00,
-                        /* 0008 */   0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00,
-                        /* 0010 */   0x03, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00,
-                        /* 0018 */   0x04, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00,
-                        /* 0020 */   0x05, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00,
-                        /* 0028 */   0x06, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00,
-                        /* 0030 */   0x07, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00,
-                        /* 0038 */   0x08, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00,
-                        /* 0040 */   0x0A, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00,
-                        /* 0048 */   0x0C, 0x00, 0x00, 0x00, 0x0C, 0x00, 0x00, 0x00,
-                        /* 0050 */   0x0E, 0x00, 0x00, 0x00, 0x0E, 0x00, 0x00, 0x00,
-                        /* 0058 */   0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00,
-                        /* 0060 */   0x14, 0x00, 0x00, 0x00, 0x14, 0x00, 0x00, 0x00,
-                        /* 0068 */   0x18, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00,
-                        /* 0070 */   0x1C, 0x00, 0x00, 0x00, 0x1C, 0x00, 0x00, 0x00,
-                        /* 0078 */   0x20, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00,
-                        /* 0080 */   0x28, 0x00, 0x00, 0x00, 0x28, 0x00, 0x00, 0x00,
-                        /* 0088 */   0x30, 0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00,
-                        /* 0090 */   0x38, 0x00, 0x00, 0x00, 0x38, 0x00, 0x00, 0x00,
-                        /* 0098 */   0x40, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00,
-                        /* 00A0 */   0x50, 0x00, 0x00, 0x00, 0x50, 0x00, 0x00, 0x00,
-                        /* 00A8 */   0x60, 0x00, 0x00, 0x00, 0x60, 0x00, 0x00, 0x00,
-                        /* 00B0 */   0x70, 0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00,
-                        /* 00B8 */   0x80, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00
-                    }
-                })
-                If (LEqual (Arg0, 0x42))
-                {
-                    Return (PL1T)
-                }
-
-                If (LEqual (Arg0, 0x5A))
-                {
-                    Name (RCR1, Package (0x02)
-                    {
-                        Zero, 
-                        Buffer (0x20)
+                        Return (Buffer (0x02)
                         {
-                            /* 0000 */   0x64, 0x00, 0x00, 0x00, 0x64, 0x00, 0x00, 0x00,
-                            /* 0008 */   0x7D, 0x00, 0x00, 0x00, 0x7D, 0x00, 0x00, 0x00,
-                            /* 0010 */   0xA7, 0x00, 0x00, 0x00, 0xA7, 0x00, 0x00, 0x00,
-                            /* 0018 */   0xFA, 0x00, 0x00, 0x00, 0xFA, 0x00, 0x00, 0x00
-                        }
-                    })
-                    Return (RCR1)
-                }
-
-                If (LEqual (Arg0, 0x45))
-                {
-                    Name (RCR0, Package (0x02)
+                             0xFF, 0x01
+                        })
+                    }
+                    Else
                     {
-                        Zero, 
-                        Buffer (0x20)
+                        If (LEqual (T_0, One))
                         {
-                            /* 0000 */   0x64, 0x00, 0x00, 0x00, 0x64, 0x00, 0x00, 0x00,
-                            /* 0008 */   0x7D, 0x00, 0x00, 0x00, 0x7D, 0x00, 0x00, 0x00,
-                            /* 0010 */   0xA7, 0x00, 0x00, 0x00, 0xA7, 0x00, 0x00, 0x00,
-                            /* 0018 */   0xFA, 0x00, 0x00, 0x00, 0xFA, 0x00, 0x00, 0x00
+                            Return ("1.2")
                         }
-                    })
-                    Return (RCR0)
+                        Else
+                        {
+                            If (LEqual (T_0, 0x02))
+                            {
+                                ToInteger (DerefOf (Index (Arg3, Zero)), TMF2)
+                                Store (0x12, TMF1)
+                                Store (TMF1, DAT)
+                                Store (OFST, INQ)
+                                If (LEqual (DAT, 0xFF))
+                                {
+                                    Return (0x02)
+                                }
+
+                                Store (TMF2, DAT)
+                                Store (OFST, INQ)
+                                If (LEqual (DAT, 0xFF))
+                                {
+                                    Return (0x02)
+                                }
+
+                                If (LEqual (DAT, 0xF1))
+                                {
+                                    Return (One)
+                                }
+
+                                Return (Zero)
+                            }
+                            Else
+                            {
+                                If (LEqual (T_0, 0x03))
+                                {
+                                    Name (PPI1, Package (0x02)
+                                    {
+                                        Zero, 
+                                        Zero
+                                    })
+                                    Store (0x11, DAT)
+                                    Store (OFST, INQ)
+                                    If (LEqual (DAT, 0xFF))
+                                    {
+                                        Return (One)
+                                    }
+
+                                    Store (DAT, Index (PPI1, One))
+                                    Return (PPI1)
+                                }
+                                Else
+                                {
+                                    If (LEqual (T_0, 0x04))
+                                    {
+                                        Return (TRST)
+                                    }
+                                    Else
+                                    {
+                                        If (LEqual (T_0, 0x05))
+                                        {
+                                            Name (PPI2, Package (0x03)
+                                            {
+                                                Zero, 
+                                                Zero, 
+                                                Zero
+                                            })
+                                            Store (0x21, DAT)
+                                            Store (OFST, INQ)
+                                            Store (DAT, Index (PPI2, One))
+                                            If (LEqual (DAT, 0xFF))
+                                            {
+                                                Return (0x02)
+                                            }
+
+                                            Store (0x31, DAT)
+                                            Store (OFST, INQ)
+                                            If (LEqual (DAT, 0xFF))
+                                            {
+                                                Return (0x02)
+                                            }
+
+                                            If (LEqual (DAT, 0xF0))
+                                            {
+                                                Store (0x51, DAT)
+                                                Store (OFST, INQ)
+                                                If (LEqual (DAT, 0xFF))
+                                                {
+                                                    Store (0xFFFFFFF0, Index (PPI2, 0x02))
+                                                    Return (PPI2)
+                                                }
+                                            }
+                                            Else
+                                            {
+                                                If (LEqual (DAT, 0xF1))
+                                                {
+                                                    Store (0x51, DAT)
+                                                    Store (OFST, INQ)
+                                                    If (LEqual (DAT, 0xFF))
+                                                    {
+                                                        Store (0xFFFFFFF1, Index (PPI2, 0x02))
+                                                        Return (PPI2)
+                                                    }
+                                                }
+                                                Else
+                                                {
+                                                    Store (DAT, Index (PPI2, 0x02))
+                                                }
+                                            }
+
+                                            Return (PPI2)
+                                        }
+                                        Else
+                                        {
+                                            If (LEqual (T_0, 0x06))
+                                            {
+                                                Return (0x03)
+                                            }
+                                            Else
+                                            {
+                                                If (LEqual (T_0, 0x07))
+                                                {
+                                                    ToInteger (DerefOf (Index (Arg3, Zero)), TMF2)
+                                                    Store (0x12, TMF1)
+                                                    Store (TMF1, DAT)
+                                                    Store (OFST, INQ)
+                                                    If (LEqual (DAT, 0xFF))
+                                                    {
+                                                        Return (0x02)
+                                                    }
+
+                                                    Store (TMF2, DAT)
+                                                    Store (OFST, INQ)
+                                                    If (LEqual (DAT, 0xFF))
+                                                    {
+                                                        Return (0x02)
+                                                    }
+
+                                                    If (LEqual (DAT, 0xF1))
+                                                    {
+                                                        Return (One)
+                                                    }
+
+                                                    Return (Zero)
+                                                }
+                                                Else
+                                                {
+                                                    If (LEqual (T_0, 0x08))
+                                                    {
+                                                        ToInteger (DerefOf (Index (Arg3, Zero)), TMF2)
+                                                        Store (0x43, TMF1)
+                                                        Store (TMF1, DAT)
+                                                        Store (OFST, INQ)
+                                                        Store (TMF2, DAT)
+                                                        Store (OFST, INQ)
+                                                        Return (DAT)
+                                                    }
+                                                    Else
+                                                    {
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    Break
                 }
-
-                Return (Zero)
             }
-
-            Method (CDRD, 1, Serialized)
+            Else
             {
-                Return (Package (0x02)
+                If (LEqual (Arg0, Buffer (0x10)
+                        {
+                            /* 0000 */   0xED, 0x54, 0x60, 0x37, 0x13, 0xCC, 0x75, 0x46,
+                            /* 0008 */   0x90, 0x1C, 0x47, 0x56, 0xD7, 0xF2, 0xD4, 0x5D
+                        }))
                 {
-                    Zero, 
-                    Zero
-                })
-            }
-
-            Method (CDWR, 2, Serialized)
-            {
-                Return (Zero)
-            }
-
-            Method (GXDV, 1, Serialized)
-            {
-                Name (PRF1, One)
-                Name (PRF2, One)
-                If (LAnd (LEqual (PRF1, One), LEqual (Arg0, One)))
-                {
-                    Return (Package (0x01)
+                    While (One)
                     {
-                        0x02
-                    })
-                }
+                        Store (ToInteger (Arg2), T_1)
+                        If (LEqual (T_1, Zero))
+                        {
+                            Return (Buffer (One)
+                            {
+                                 0x03
+                            })
+                        }
+                        Else
+                        {
+                            If (LEqual (T_1, One))
+                            {
+                                Store (0x22, TMF1)
+                                Store (TMF1, DAT)
+                                Store (OFST, INQ)
+                                If (LEqual (DAT, 0xFF))
+                                {
+                                    Return (0x02)
+                                }
 
-                If (LAnd (LEqual (PRF2, One), LEqual (Arg0, 0x02)))
-                {
-                    Return (Package (0x01)
-                    {
-                        0x02
-                    })
-                }
+                                ToInteger (DerefOf (Index (Arg3, Zero)), TMF1)
+                                Store (TMF1, DAT)
+                                Store (OFST, INQ)
+                                If (LEqual (DAT, 0xFF))
+                                {
+                                    Return (0x02)
+                                }
 
-                OperationRegion (PRFA, SystemMemory, 0xA9A80018, Zero)
-                Field (PRFA, ByteAcc, NoLock, Preserve)
-                {
-                    XMP1,   0, 
-                    XMP2,   0
-                }
+                                Return (Zero)
+                            }
+                            Else
+                            {
+                            }
+                        }
 
-                Name (RPKG, Package (0x02) {})
-                Name (XMPT, Buffer (Zero) {})
-                If (LEqual (Arg0, One))
-                {
-                    Store (XMP1, XMPT)
-                    Store (Zero, Index (RPKG, Zero))
-                    Store (XMPT, Index (RPKG, One))
-                    Return (RPKG)
+                        Break
+                    }
                 }
-
-                If (LEqual (Arg0, 0x02))
-                {
-                    Store (XMP2, XMPT)
-                    Store (Zero, Index (RPKG, Zero))
-                    Store (XMPT, Index (RPKG, One))
-                    Return (RPKG)
-                }
-
-                Return (Package (0x01)
-                {
-                    One
-                })
             }
+
+            Return (Buffer (One)
+            {
+                 0x00
+            })
         }
     }
 
@@ -13522,7 +15210,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         {
             Name (_HID, EisaId ("PNP0C09"))  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
-            Method (_STA, 0, Serialized)  // _STA: Status
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 Store (0x03, ^^^GFX0.CLID)
                 Return (Zero)
@@ -13556,6 +15244,19 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             Name (AWT0, Zero)
             Name (DLED, Zero)
             Name (IBT1, Zero)
+            Name (ECAV, Zero)
+            Name (SPT2, Zero)
+            Name (PB10, Zero)
+            Method (ECRD, 1, Serialized)
+            {
+                Return (DerefOf (Arg0))
+            }
+
+            Method (ECWT, 2, Serialized)
+            {
+                Store (Arg0, Arg1)
+            }
+
             Method (ECMD, 1, Serialized)
             {
                 If (ECON)
@@ -13573,7 +15274,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             {
                 Name (_HID, EisaId ("PNP0C0A"))  // _HID: Hardware ID
                 Name (_UID, Zero)  // _UID: Unique ID
-                Method (_STA, 0, Serialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     Return (Zero)
                 }
@@ -13596,7 +15297,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             {
                 Name (_HID, EisaId ("PNP0C0A"))  // _HID: Hardware ID
                 Name (_UID, One)  // _UID: Unique ID
-                Method (_STA, 0, Serialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     Return (Zero)
                 }
@@ -13617,7 +15318,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
             {
                 Name (_HID, EisaId ("PNP0C0A"))  // _HID: Hardware ID
                 Name (_UID, 0x02)  // _UID: Unique ID
-                Method (_STA, 0, Serialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     Return (Zero)
                 }
@@ -13630,7 +15331,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         Name (_HID, "ABCD0000")  // _HID: Hardware ID
         Name (_CID, EisaId ("PNP0C15"))  // _CID: Compatible ID
         Name (_UID, 0x02)  // _UID: Unique ID
-        Method (_STA, 0, Serialized)  // _STA: Status
+        Method (_STA, 0, NotSerialized)  // _STA: Status
         {
             Return (Zero)
         }
@@ -13641,7 +15342,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         Device (LID0)
         {
             Name (_HID, EisaId ("PNP0C0D"))  // _HID: Hardware ID
-            Method (_STA, 0, Serialized)  // _STA: Status
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 Return (Zero)
             }
@@ -13695,7 +15396,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         Zero, 
         Zero
     })
-    Method (PTS, 1, Serialized)
+    Method (PTS, 1, NotSerialized)
     {
         If (Arg0)
         {
@@ -13705,23 +15406,22 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "MSI_NB", "MEGABOOK", 0x00000022)
         }
     }
 
-    Method (WAK, 1, Serialized)
+    Method (WAK, 1, NotSerialized)
     {
-				\_SB.PCI0.PEG0.PEGP.SGON ()
-        \_SB.PCI0.PEG0.PEGP.SGOF ()
         \_SB.PCI0.LPCB.SWAK (Arg0)
         \_SB.PCI0.NWAK (Arg0)
         \_SB.PCI0.LPCB.SIOW (Arg0)
+        \_SB.PCI0.PEG0.PEGP.SGOF ()
     }
 
-    Method (OSCM, 4, Serialized)
+    Method (OSCM, 4, NotSerialized)
     {
         Return (Zero)
     }
 
-    Method (PINI, 0, Serialized)
+    Method (PINI, 0, NotSerialized)
     {
-        \_SB.PCI0.PEG0.PEGP.SGOF ()
+			\_SB.PCI0.PEG0.PEGP.SGOF ()
     }
 }
 
