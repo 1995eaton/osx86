@@ -3,7 +3,7 @@
  * AML Disassembler version 20111123-32 [Dec  3 2011]
  * Copyright (c) 2000 - 2011 Intel Corporation
  * 
- * Disassembly of dsdt.aml, Sun Dec 15 01:13:03 2013
+ * Disassembly of dsdt.aml, Sat Jan  4 20:35:13 2014
  *
  * Original Table Header:
  *     Signature        "DSDT"
@@ -6827,6 +6827,22 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "ALASKA", "A M I", 0x00000012)
                     ,   15, 
                 PMES,   1
             }
+			  
+				Method (_DSM, 4, NotSerialized)
+				{
+					Store (Package (0x04)
+					{
+						"layout-id", 
+						Buffer (0x04)
+         			{
+                  	0x01, 0x00, 0x00, 0x00
+                  }, 
+                  "PinConfigurations", 
+                  Buffer (Zero) {}
+               }, Local0)
+               DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+               Return (Local0)
+           }
 
             Method (_PRW, 0, NotSerialized)
             {
@@ -11308,4 +11324,35 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "ALASKA", "A M I", 0x00000012)
         \_SB.PCI0.NWAK (Arg0)
         \_SB.PCI0.LPCB.SIOW (Arg0)
     }
+	 Method (DTGP, 5, NotSerialized)
+	 {
+		 If (LEqual (Arg0, Buffer (0x10)
+			{
+			/* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44, 
+			/* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B
+			}))
+		 {
+			 If (LEqual (Arg1, One))
+			 {
+				 If (LEqual (Arg2, Zero))
+				 {
+					 Store (Buffer (One)
+						{
+							0x03
+						}, Arg4)
+					 Return (One)
+				 }
+				 If (LEqual (Arg2, One))
+				 {
+					 Return (One)
+				 }
+			 }
+		 }
+		 Store (Buffer (One)
+			{
+				0x00
+			}, Arg4)
+		 Return (Zero)
+	}
 }
+
